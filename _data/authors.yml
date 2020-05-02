@@ -1,0 +1,25 @@
+Aashish Kumar:
+  name        : "Aashish Kumar"
+  bio         : "Core Team Member, Programming Club, IIT Mandi"
+  avatar      : "https://avatars2.githubusercontent.com/u/21988675?s=400&v=4"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:kumaraashish118@gmail.com"
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://aashish-ak.github.io" 
+    - label: "Linkedin"
+      icon: "fab fa-linkedin"
+      url: "https://www.linkedin.com/in/aashish-kumar-159715129/"
+DevBae:
+  name        : "DevBae"
+  bio         : "Admin, DevBae"
+  avatar      : "/assets/images/devbae_dp.png"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:contact@devbae.tech"
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://devbae.tech" 

@@ -1,0 +1,61 @@
+title:              DevBae
+email:              contact@devbae.tech
+description:        Technology Made Easy!
+author:             DevBae
+baseurl:            "/"
+url:                "https://www.devbae.tech"
+
+# Social Profiles
+# twitter_username:   SBootstrap
+github_username:    devbae
+# facebook_username:  StartBootstrap
+# linkedin_username:
+
+# Add your google-analytics ID here to activate google analytics
+google_analytics:   UA-165164055-1 # out your google-analytics code
+
+# Build settings
+markdown:           kramdown
+paginate:           5
+paginate_path:      "/posts/page:num/"
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-sitemap ## Uncomment this line to silently generate a sitemaps.org compliant sitemap for your Jekyll site
+
+
+# Defaults
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: # true
+      share: true
+      related: true
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      share: true
+      comments: #true
+      related: true
+  # _Events
+  - scope:
+      path: ""
+      type: Events
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      share: true
+      comments: #true
+      related: true      
