@@ -15,12 +15,12 @@ github_username:    devbae
 google_analytics:   UA-165164055-1 # out your google-analytics code
 
 # Build settings
-markdown:           kramdown
-kramdown:
-  input: GFM
-  auto_ids: true
-  hard_wrap: false
-  syntax_highlighter: rouge
+future: true
+markdown: redcarpet
+highlighter: pygments
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript"]
+
 paginate:           5
 paginate_path:      "/posts/page:num/"
 plugins:
@@ -28,7 +28,8 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap ## Uncomment this line to silently generate a sitemaps.org compliant sitemap for your Jekyll site
 
-include: _pages
+include: 
+  - _pages
 
 # Defaults
 defaults:
