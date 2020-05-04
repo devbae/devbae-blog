@@ -30,10 +30,9 @@ layout: default
     </div>
   </header>
 
-  <!-- {% include sidebar.html %} -->
 
   <div class="container">
-    
+
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
 
@@ -41,6 +40,8 @@ layout: default
 
         <hr>
         
+        {% include social-share.html %}
+
         {% if page.comments != false %}
           {% include comments.html %}
           <hr>

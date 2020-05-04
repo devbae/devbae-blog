@@ -5,7 +5,7 @@ title: CTF 2017 Editorial
 subtitle: The first CTF of IIT Mandi
 ---
 
-In 2017, we had the first Capture The Flag (CTF) event in Utkarsh (I hope everybody remembers! :P ) . Many people had wanted to give the problems more attempt but I hadn't made the problems public after the contest. Now I have done so! and is available at http://iit-mandi-ctf.herokuapp.com. 
+In 2017, we had the first Capture The Flag (CTF) event in Utkarsh (I hope everybody remembers! :P ) . Many people had wanted to give the problems more attempt but I hadn't made the problems public after the contest. Now I have done so! and is available at "http://iit-mandi-ctf.herokuapp.com".
 
 There is a common username and password for everyone -
 email: guest@students.iitmandi.ac.in<br>
@@ -20,7 +20,7 @@ Key -> `thisisthekeytozerolevel`
 Here is your key 'thisisthekeytozerolevel'
 
 ### Level 1
-Key is something like this->` $2a$08$qirq1QHHkC2cKBvemC/I6ekXKpIQo5t//YLxLhWcO9Z7Kyk/CeMw6.`
+Key is something like this->`$2a$08$qirq1QHHkC2cKBvemC/I6ekXKpIQo5t//YLxLhWcO9Z7Kyk/CeMw6.`
 
 It is different for all users.
 
