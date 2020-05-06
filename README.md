@@ -1,4 +1,4 @@
-# [Devbae](https://devbae.tech/) - Technology Made Easy`!`
+# [Devbae](https://devbae.tech/) - Technology Made Easy!
 
 [Devbae](https://devbae.tech/) is a tech blogging website to share knowledge about all the latest technology.
 

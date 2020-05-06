@@ -15,11 +15,18 @@ background: '/img/bg-post.jpg'
     <h3 class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</h3>
     {% endif %}
   </a>
+
+  {% if post.author %}
+  {% assign author = post.author %}
+  {% else %}
+  {% assign author = site.author %}
+  {% endif %}
+
   <p class="post-meta">Posted by
-    {% if post.author %}
-    {{ post.author }}
+    {% if post.author_url %}
+    <a target="_blank" href="{{ post.author_url }}">{{ author }}</a>
     {% else %}
-    {{ site.author }}
+    {{ author }}
     {% endif %}
     on {{ post.date | date: '%B %d, %Y' }} &middot; {% include read_time.html content=post.content %} &middot;
     <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}#disqus_thread"></a>
