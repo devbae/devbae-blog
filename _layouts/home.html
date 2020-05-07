@@ -34,7 +34,7 @@ layout: default
         <!-- Home Post List -->
         
         {% assign posts = site.posts | where_exp: "post", "'DevBae' == post.author" %}
-        {% for post in site.posts limit : 5 %}
+        {% for post in site.posts reversed limit : 5 %}
           {% if post.tags contains 'home' %}
             <article class="post-preview">
               <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
