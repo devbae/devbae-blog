@@ -46,15 +46,15 @@ layout: default
                 {% endif %}
               </a>
 
-              {% if page.author %}
-              {% assign author = page.author %}
+              {% if post.author %}
+              {% assign author = post.author %}
               {% else %}
               {% assign author = site.author %}
               {% endif %}
               
               <p class="post-meta">Posted by
-                {% if page.author_url %}
-                <a target="_blank" href="{{ page.author_url }}">{{ author }}</a>
+                {% if post.author_url %}
+                <a target="_blank" href="{{ post.author_url }}">{{ author }}</a>
                 {% else %}
                 {{ author }}
                 {% endif %}
