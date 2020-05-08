@@ -1,0 +1,392 @@
+---
+layout: post
+author: "Shivam Chaudhary"
+author_url: https://github.com/andy6975
+title: "Building Tensorflow 1.14 GPU"
+subtitle: "How to build TF GPU in Ubuntu with TensorRT"
+bg_url: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tensorflow.org%2F&psig=AOvVaw1Gpx9AJEqAd0jPYRa57bWQ&ust=1588994195374000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKjGke6mo-kCFQAAAAAdAAAAABAO"
+tags: [home]
+home_title: "Building Tensorflow from source"
+home_subtitle: "Build TF with GPU and TensorRT Support"
+---
+
+
+# Building Tensorflow 1.14 with GPU Support and TensorRT on Ubuntu 16.04 LTS
+
+My Ubuntu and I are in kind of a weird relationship. I would be glad to tell you all but truth is even I don't know what it is. All I see are the consequence…catastrophic consequences. We both say somethings we don't mean but I think it's because of my affair with TensorFlow. I guess they are not yet ready for adultery. 😐
+
+It's my third time in the past two months that I am installing TensorFlow and I am one of those guys who wants the best for/from his machine so I couldn't settle for less. I have tried my hands on this process so many times that I decided to write an article for many out there who are struggling to make their relationship work (pun intended!).
+
+---
+
+To build Tensorflow 2.0 with GPU support and TensorRT on Ubuntu 18.04 LTS, follow this [link](https://medium.com/@shivam.iitmandi/building-tensorflow-2-0-with-gpu-support-and-tensorrt-on-ubuntu-18-04-lts-part-1-e04ce41f885c).
+
+---
+
+**Okay, so what would we need?**
+
+* CUDA 10.0 (for Tensorflow ≥ 1.13.0)
+* NVIDIA GPU Driver (CUDA 10.0 requires ≥ 410.x)
+* cuDNN SDK (≥ 7.4.1)
+* CUPTI (ships with CUDA Toolkit)
+* Bazel (0.24.1 ≤ version ≤ 0.26.1)
+
+
+Shall we begin?
+
+I'll write down the steps in segments to make the process more concise and to the point.
+
+### Update and upgrade your system.
+
+```
+$ sudo apt-get update
+
+$ sudo apt-get upgrade
+```
+
+### Verify you have CUDA-enable GPU.
+
+```
+$ lspci | grep -i nvidia
+```
+
+***lspci*** command returns the list of all the hardwares installed on your system. Using ***grep | -i nvidia*** will return only the name of your NVIDIA Hardware. Note down the name and check whether your GPU is CUDA-enabled at http://developer.nvidia.com/cuda-gpus.
+
+If present, note down its compute capability.
+
+### Remove any existing or previous installed CUDA
+
+```
+$ sudo apt-get purge nvidia*
+
+$ sudo apt-get autoremove
+
+$ sudo apt-get autoclean
+
+$ sudo rm -rf /usr/local/cuda*
+```
+
+The first command will uninstall nvidia driver installed on your system. We will install the compatible one later. The second and third are to delete useless and unnecessary files, which were installed as dependencies for other packages but are no longer needed. And the last command will delete the folder containing CUDA.
+
+### Install CUDA 10.0 for Ubuntu 16.04
+
+Don't install CUDA-10.1. Tensorflow is not yet compatible with the latest version.
+
+```
+$ sudo apt-get install gnupg-curl
+```
+
+This will help transfer data to and from a server, using any of the supported protocols.
+
+```
+$ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
+```
+
+This will download the CUDA 10.0 from the server.
+
+```
+$ sudo dpkg -i cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
+
+$ sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub
+
+```
+
+***dpkg*** command is used to install *.deb* files on Ubuntu. The first command will add CUDA 10.0 for later installation. The second command is to add the repository key.
+
+```
+$ sudo apt-get update
+```
+
+Update your package lists.
+
+```
+$ wget http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1604/x86_64/nvidia-machine-learning-repo-ubuntu1604_1.0.0-1_amd64.deb
+
+$ sudo apt install ./nvidia-machine-learning-repo-ubuntu1604_1.0.0-1_amd64.deb
+```
+
+Download and add NVIDIA machine learning tools, required for tensorflow.
+
+```
+$ sudo apt-get update
+
+$ reboot
+```
+
+Update and reboot your system.
+
+### Install the required NVIDIA driver **
+
+CUDA won't install until and unless your system has the required NVIDIA driver for your GPU. Install it via PPA.
+
+```
+$ sudo add-apt-repository ppa:graphics-drivers/ppa
+$ sudo apt-get update
+```
+
+Go to **Additional Drivers** window in Ubuntu and select the preferred driver, then apply those changes. Reboot your system to load the driver.
+
+*** **IMPORTANT** ***
+
+The choice of the driver depends on your system and Ubuntu kernel version. The **Additional Drivers** window would display numerous options, like this:
+
+![](../img/Console.png)
+
+Now, you might be tempted to install the latest one but that might result in certain complications, like, darkening of screen or failing to boot into Ubuntu after reboot. To avoid that, I recommend going with **NVIDIA-410.x**. I have tried higher versions and they didn't work for my system. Also, NVIDIA-410.x works like a charm!
+
+Finally, install CUDA 10.0, cuDNN SDK, CUPTI and TensorRT
+
+```
+$ sudo apt-get install --no-install-recommends \
+    cuda-10-0 \
+    libcudnn7=7.6.2.24-1+cuda10.0  \
+    libcudnn7-dev=7.6.2.24-1+cuda10.0 
+
+$ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64
+
+$ sudo apt-get install -y --no-install-recommends libnvinfer5=5.1.5-1+cuda10.0 \
+    libnvinfer-dev=5.1.5-1+cuda10.0
+```
+
+This will finally install CUDA 10.0, cuDNN SDK 7.6.2, CUPTI and TensorRT on your system.
+
+### Add the paths of installed directories to PATH variable
+
+Add the paths of the recently installed files to the PATH variable so that it knows where to look for them when needed.
+
+```
+$ echo 'export PATH=/usr/local/cuda-10.0/bin${PATH:+:${PATH}}' >> ~/.bashrc
+
+$ echo 'export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}' >> ~/.bashrc
+These commands will add the paths to the PATH variable.
+
+$ source ~/.bashrc
+
+$ sudo ldconfig
+```
+
+Reload and update bashrc file. Reboot the system.
+
+### Verify the installation of CUDA 10.0, cuDNN and TensorRT
+
+#### Verification of CUDA 10.0:
+
+```
+$ cuda-install-samples-10.0.sh ~
+
+$ cd ~/NVIDIA_CUDA-10.0_Samples/5_Simulations/nbody
+
+$ make
+
+$ ./nbody
+```
+
+These commands will install CUDA 10.0 samples and run one of them. If you see some kind of animation, then your CUDA 10.0 is working perfectly fine.
+
+#### Verification of cuDNN 7.6.2:
+
+```
+$ whereis cudnn.h
+```
+
+This will return the location of **cudnn.h** file. Note that down. Let's call it **\${CUDNN_H_PATH}**.
+
+```
+$ cat ${CUDNN_H_PATH} | grep CUDNN_MAJOR -A 2
+```
+
+It should return something like this:
+
+```
+#define CUDNN_MAJOR 7
+
+#define CUDNN_MINOR 6
+
+#define CUDNN_PATCHLEVEL 2
+
+#define CUDNN_VERSION (CUDNN_MAJOR * 1000 + CUDNN_MINOR * 100 + CUDNN_PATCHLEVEL)
+
+#include "driver_types.h"
+```
+
+#### Verification of TensorRT:
+
+```
+$ dpkg -l | grep nvinfer
+```
+
+This should return something like this:
+
+```
+ii  libnvinfer-dev          5.1.5-1+cuda10.0
+amd64               TensorRT development libraries and headers
+ii  libnvinfer5             5.1.5-1+cuda10.0 
+amd64               TensorRT runtime libraries
+```
+
+### Install the dependencies
+
+```
+$ pip3 install -U --user pip six numpy wheel setuptools mock
+
+$ pip3 install -U --user keras_applications==1.0.6 --no-deps
+
+$ pip3 install -U --user keras_preprocessing==1.0.5 --no-deps
+```
+
+Omit ```--user``` if installing in a virtual environment.
+
+### Build Tensorflow 1.14 from source using bazel build
+
+#### Download and install Bazel:
+
+Download bazel from https://github.com/bazelbuild/bazel/releases . I have used **0.25.0**.
+
+```
+$ cd ~/ # My bazel file was in $HOME
+
+$ chmod +x bazel-0.25.0-installer-linux-x86_64.sh
+
+$ ./bazel-0.25.0-installer-linux-x86_64.sh --user
+```
+
+This will install bazel on your system. Now add its path to the PATH variable.
+
+```
+$ echo 'export PATH="$PATH:$HOME/bin"' >> ~/.bashrc^C
+
+$ source ~/.bashrc
+
+$ sudo ldconfig
+```
+
+#### Clone Tensorflow repository:
+
+```
+$ git clone https://github.com/tensorflow/tensorflow.git
+```
+
+After the cloning is complete change directory to tensorflow and checkout to the version branch.
+
+```
+$ cd tensorflow
+
+$ git checkout r1.14
+```
+
+#### Configure the build:
+
+It's time to configure the build and decide the features to give to tensorflow.
+
+```
+$ ./configure
+```
+
+This would load a argument parser on terminal asking for paths and features. Like this:
+
+```
+Please specify the location of python. [Default is /usr/bin/python]: /usr/bin/python3
+Do you wish to build TensorFlow with Apache Ignite support? [Y/n]: Y
+Do you wish to build TensorFlow with XLA JIT support? [Y/n]: Y
+Do you wish to build TensorFlow with OpenCL SYCL support? [y/N]: N
+
+Do you wish to build TensorFlow with ROCm support? [y/N]: N
+
+Do you wish to build TensorFlow with CUDA support? [y/N]: Y
+```
+
+It would automatically detect the paths to CUDA, cuDNN and TensorRT.
+
+```
+Do you wish to build TensorFlow with TensorRT support? [y/N]: Y
+Enter the compute capability to use. Please note that each additional compute capability significantly increases your build time and binary size. [Default is: 5.0] {Enter the compute capability noted before}
+Do you want to use clang as CUDA compiler? [y/N]: N
+Please specify which gcc should be used by nvcc as the host compiler. [Default is /usr/bin/gcc]: /usr/bin/gcc
+Do you wish to build TensorFlow with MPI support? [y/N]: N
+
+Please specify optimization flags to use during compilation when bazel option "--config=opt" is specified [Default is -march=native]: -march=native
+
+Would you like to interactively configure ./WORKSPACE for Android builds? [y/N]:N
+```
+
+This will configure the build.
+
+#### Start build process:
+
+Building will create a pip-package of tensorflow to be installed later.
+
+```
+$ bazel build --config=opt --config=cuda //tensorflow/tools/pip_package:build_pip_package
+```
+
+*** **Side Note** ***
+
+```
+add "--config=mkl" if you want Intel MKL support for newer intel cpu for faster training on cpu
+
+add "--config=monolithic" if you want static monolithic build (try this if build failed)
+
+add "--local_resources 2048,.5,1.0" if your PC has low RAM causing Segmentation fault or other related errors
+```
+
+This process will take a long time. Probably 2–3 hours. So wait and look out for any build failure, they are ought to come. If it happens, look at the error behind it and Google for the solution. If it's something you don't understand or can't find the solution for on Google then shutdown bazel local server using:
+
+```
+$ bazel clean --expunge
+```
+
+And run the build process again. It worked for me twice.
+
+#### Build the whl file of tensorflow to install it:
+
+```
+$ bazel-bin/tensorflow/tools/pip_package/build_pip_package tensorflow_pkg
+```
+
+#### Install Tensorflow with pip:
+
+If not using virtual environment:
+
+```
+$ cd tensorflow_pkg
+
+$ pip3 install tensorflow*.whl
+```
+
+For virtual environment:
+
+```
+$ sudo apt-get install virtualenv
+
+$ virtualenv tf_1.14_cuda10.0 -p /usr/bin/python3
+
+$ source tf_1.14_cuda10.0/bin/activate
+
+$ pip3 install tensorflow*.whl
+```
+
+#### Verify Tensorflow installation:
+
+```
+$ python3
+
+>>> import tensorflow as tf
+>>> hello = tf.constant('Hello, TensorFlow!')
+>>> sess = tf.Session()
+>>> print(sess.run(hello))
+```
+
+If the system outputs the result then hooray! You are ready to mess around with Tensorflow.
+
+### AND WE'RE DONE!!!
+
+** The reason why I installed NVIDIA Driver after CUDA is because for some reason doing the opposite installed CUDA 10.1 instead of CUDA 10.0 and by default my system started using NVIDIA-418.x driver. If you find the problem, let me know!
+
+That'd be all! Thank you so much for scrolling all through the way down. I hope you find this article useful. This is my first article and I hope to keep writing. Thank you!
+
+Godspeed!
+
+**Ref:**
+* https://www.tensorflow.org/install/gpu
+* https://www.tensorflow.org/install/source
+* https://www.pytorials.com
