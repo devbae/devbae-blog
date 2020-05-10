@@ -23,3 +23,8 @@ img[alt$="><"] {
   margin: auto;
   float: none!important;
 }
+
+h1, h2, h3, h4, h5, h6 {
+    /* 64px navbar + 20px for spacing */
+    scroll-margin-top: 84px;
+}

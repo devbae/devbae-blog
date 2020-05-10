@@ -1,0 +1,9 @@
+{% assign heading = include.heading %}
+{% if include.level %}
+{% assign level = include.level%}
+{% else %}
+{% assign level = 2 %}
+{% endif %}
+<h{{ level }} id="{{ heading | slugify }}" class="linked-heading">
+  <a href="#{{ heading | slugify }}">#</a> {{ heading }}
+</h{{ level }}>

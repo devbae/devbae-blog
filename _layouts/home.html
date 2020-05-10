@@ -33,14 +33,13 @@ layout: default
 
         <!-- Home Post List -->
         
-        {% assign posts = site.posts | where_exp: "post", "'DevBae' == post.author" %}
-        {% for post in site.posts reversed limit : 5 %}
+        {% for post in site.posts reversed %}
           {% if post.tags contains 'home' %}
             <article class="post-preview">
               <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
-                <h2 class="post-title">{{ post.home_title }}</h2>
-                {% if post.subtitle %}
-                <h3 class="post-subtitle">{{ post.home_subtitle }}</h3>
+                <h2 class="post-title">{% if post.home_title %}{{ post.home_title }}{% else %}{{ post.title }}{% endif %}</h2>
+                {% if post.subtitle or post.home_subtitle %}
+                <h3 class="post-subtitle">{% if post.home_subtitle %}{{ post.home_subtitle }}{% else %}{{ post.subtitle }}{% endif %}</h3>
                 {% else %}
                 <h3 class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</h3>
                 {% endif %}
