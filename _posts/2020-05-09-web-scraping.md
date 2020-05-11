@@ -5,11 +5,12 @@ layout: post
 title: "Web Scraping - The Python Way!"
 subtitle: "How about turning the whole internet into your database?"
 bg_url: "https://source.unsplash.com/Qbs6liSxjr8/1200x800"
-tags: [home, scraping, beginner, python]
+tags: [home, scraping, beginner, python, beautifulsoup]
 ---
 Pre-requisites:
 
-- HTML (knowledge of HTML tags)
+- HTML (knowledge of HTML tags, attributes, properties)
+- Developer Tools(Chrome, Firefox, Safari - all have this feature)
 - Basic Python (use of loops, arrays, and basic data structures)
 
 Yes, you read the title right, this is not a clickbait article, we're really talking about turning the whole internet into your database. But before we do that, let's get a little insight into what web scraping is, and why everyone should have this superpower of becoming a scraper spiderman (You'll know why we're calling that soon).
@@ -113,10 +114,11 @@ Web crawlers provide you metadata by searching through keywords and links but do
 
 <h2 id="scraping-python"> Scraping - The Python Way! </h2>
 
-Phew! Enough of the Gyaan, It's time to put out your coding weapons (python in this case). In this tutorial, we'll be scraping the details of the faculties of different departments of a few IITs. But before we start, make sure you have `python3` installed on your laptop. We'll be using the `BeautifulSoup` python library for scraping the pages. Let's install it first using pip. Windows and Mac/OSX users can install it using [this](https://subscription.packtpub.com/book/web_development/9781783289554/1/ch01lvl1sec08/installing-beautiful-soup).
+Phew! Enough of the Gyaan, It's time to put out your coding weapons (python in this case). In this tutorial, we'll be scraping the details of the faculties of different departments of a few IITs. But before we start, make sure you have `python3` installed on your laptop. We'll be using the `request` library to make get request and `BeautifulSoup` python library for scraping the pages. Let's install it first using pip. Windows and Mac/OSX users can install it using [this](https://subscription.packtpub.com/book/web_development/9781783289554/1/ch01lvl1sec08/installing-beautiful-soup).
 
 ```python
-sudo pip install beautifulsoup4
+sudo pip3 install requests
+sudo pip3 install beautifulsoup4
 ```
 
 After installing the library let's start writing the scraper script. So first in the list is [IITR CSE department](https://www.iitr.ac.in/departments/CSE/pages/People+Faculty_List.html). If we open the [robots.txt](https://www.iitr.ac.in/robots.txt) file of IITR's website, then we see this:
@@ -157,3 +159,123 @@ Disallow: /PageUploads/files/
 ```
 
 So except these links, we can scrape any page from IITR's website. The page we are scraping is [this](https://www.iitr.ac.in/departments/CSE/pages/People+Faculty_List.html), which has `/departments/CSE/` hyperlink, which is allowed. So let's scrape it.
+
+### Part 1 : Inspect the WebPage
+Developer Tools - Developer tools (DevTools) help developers to create, test and debug software. Most web browsers(Chrome, Firefox,Safari) have these tools.
+DevTools in browsers can be used to -
+1. Change a webpage on the fly.
+2. Find, reproduce and debug javascript errors
+3. Check Network activity
+4. View and Change a Page's Styles (CSS)
+5. Check use of WebStorage
+6. Using Responsive Design Mode, we can see how are page will look like in different screens.
+
+Checkout the DevTools Documentations [here](https://developer.mozilla.org/en-US/docs/Tools)(Firefox) and [here](https://developers.google.com/web/tools/chrome-devtools)(Chrome)
+
+Let's use DevTools to study the document we want to scrape.
+
+1. This is how the page looks when we open the DevTools(Check the documentation links above if you don't know how to open or use devtools). 
+
+<img src="https://user-images.githubusercontent.com/20344314/81575411-a20f3480-93c4-11ea-9c3c-61f4ca006370.PNG" alt="DevTools Panel" width="250"/>
+
+2. We want to scrape the list of faculties - 
+	a. We first need to find this list in the Document.
+	b. Use "pick an element from page tool" (using `ctrl+shift+c` or mouse pointer icon in the top left of the devtools panel).
+	c. Find out which element contains the list by hovering over the list.
+	d. You'll find out that the element `body -> div.main -> div.content -> div.content -> div.list` contains the list.
+	e. All the list elements are div with class list-wrapper.
+
+<img src="https://user-images.githubusercontent.com/20344314/81575424-a50a2500-93c4-11ea-9c48-c222cecee2cc.PNG" alt="Pick Element Tool" width="250"/>
+
+### Part 2 : Use beautifulsoup to scrape these elements -
+
+1. We need to get the html document, for which we'll use `requests` library.
+
+```
+import requests
+
+URL = 'https://www.iitr.ac.in/departments/CSE/pages/People+Faculty_List.html'
+pageResponse = requests.get(URL)
+```
+It sends a get request to the server. The response is the html document if there is no error.
+
+
+2. We need to parse the html and find the faculty list from the whole document.
+
+```
+import requests
+from bs4 import BeautifulSoup
+
+URL = 'https://www.iitr.ac.in/departments/CSE/pages/People+Faculty_List.html'
+pageResponse = requests.get(URL)
+
+bsParser = BeautifulSoup(pageResponse.content, 'html.parser')
+```
+Here, we have passed the page content(html code) to beautifulsoup and the type of parser(html parser).
+
+3. We'll be using beautiful soup functions `find`, `find_all` and `find_children`. Read the documentation of beautiful soup [here](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+
+```
+import requests
+
+URL = 'https://www.iitr.ac.in/departments/CSE/pages/People+Faculty_List.html'
+pageResponse = requests.get(URL)
+
+bsParser = BeautifulSoup(page.content, 'html.parser')
+
+listElements = bsParser.find_all('div', class_='list-wrapper') #returns all div elements with class list-wrapper
+```
+
+`listElements` contains the list of all faculties
+
+4. Let's deconstruct the list wrapper element using devtools.
+
+<img src="https://user-images.githubusercontent.com/20344314/81575432-a6d3e880-93c4-11ea-9184-f5bee0e36f49.PNG" alt="List Wrapper" width="250"/>
+
+Every list element has an image element `img.dp` and a `div.detail` with all the information about the faculty. 
+
+We'll extract the source of the image directly and find the details using `findChildren` attribute. It returns an array of children of an element. 
+While enumerating over the children list, we first check if the element is null.
+
+```
+facultyArray = []
+for faculty in listElements:
+    facultyImage = faculty.find('img', class_='dp').get('src')
+    
+    # returns the list of all children elements of
+    facultyDetails = faculty.find('div', class_='detail').findChildren(recursive=False)
+    
+    # in the first child, find the first anchor element and get the text
+    facultyName = facultyDetails[0].find('a')
+    if not facultyName:
+        facultyName = ""
+    else:
+        facultyName = facultyName.text
+    
+    # in the first child, find the first anchor element and get the href
+    facultyLink = facultyDetails[0].find('a').get('href')
+    
+     # second child is the div with position of the faculty
+    facultyPos = facultyDetails[1]
+    if not facultyPos:
+        facultyPos = ""
+    else:
+        facultyPos = facultyPos.text
+    
+    # third child is the interest of the faculty, find the p element
+    
+    facultyInterest = facultyDetails[2].find('p')
+    if not facultyInterest:
+        facultyInterest = ""
+    else:
+        facultyInterest = facultyInterest.text
+    
+    # fourth and fifth elements are span with contact information, simply get the text
+    facultyEmail = facultyDetails[3].text 
+    facultyContact = facultyDetails[4].text
+
+    facultyInfo = {"Name" : facultyName, "Link" : facultyLink, "Pos" : facultyPos, "Interest" : facultyInterest, "Email" : facultyEmail, "Contact" : facultyContact}
+    facultyArray.append(facultyInfo)
+```
+
+We finally have the list of all the faculties in `facultyArray`, it can be used to store in a csv file or a database.
