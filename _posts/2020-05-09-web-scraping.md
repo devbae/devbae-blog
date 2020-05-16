@@ -1,7 +1,7 @@
 ---
 layout: post
 author: ["Aashish Kumar", "Lakshya Arora"]
-author_url: [ "https://github.com/aashish-ak", "https://github.com/aroralakshya"]
+author_url: ["https://github.com/aashish-ak", "https://github.com/aroralakshya"]
 title: "Web Scraping - The Python Way!"
 subtitle: "How about turning the whole internet into your database?"
 bg_url: "https://source.unsplash.com/Qbs6liSxjr8/1200x800"
