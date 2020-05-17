@@ -12,7 +12,7 @@ In this series of blogs I aim to introduce a broad introduction to several core 
 
 ## Introduction to Artificial Intelligence
 
-![image alt ><](/img/Venndiagram.png)
+![image alt ><](https://user-images.githubusercontent.com/21988675/82156264-c3c25d00-9897-11ea-92a6-16ba81944fb0.png)
 
 Artificial Intelligence is about software that is more intelligent than conventional software, and maybe, in some respects, as intelligent or more intelligent than human beings.
 
