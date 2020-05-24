@@ -3,9 +3,11 @@ layout: post
 author: "Utkarsh Jain"
 author_url: https://github.com/the-utkarshjain
 title: "Artificial Intelligence - Part 1"
+home_title: "Intro to Artificial Intelligence Series"
+home_subtitle: "Learn A.I. from Scratch"
 subtitle: "Introduction to Artificial Intelligence"
 bg_url: "https://blog-c7ff.kxcdn.com/blog/wp-content/uploads/2017/04/AI_blog.jpg"
-tags: [home]
+tags: [home, AI]
 ---
 
 In this series of blogs I aim to introduce a broad introduction to several core areas of Artificial Intelligence. The focus is on what could be characterized as high-level cognitive functions of intelligent systems: thinking/reasoning, problem-solving, decision-making, and planning. These functionalities are central for any intelligent person, creature or device, and shows up in most of the important A.I. applications: **What action to take to satisfy given objectives?**
@@ -30,7 +32,7 @@ To understand this we need to apprehend the difference between conventional soft
 
 The most basic idea of computation is that some given input is mapped to some deterministic output by some computer program which may use one or more algorithms to reach that output. An example of this would be a computer program which sums two integers. The input is mapped to the output by a defined rule i.e a + b where a and b are the inputs.
 
-This model of computation is very general and can be matched to almost anything, even to types of A.I. used in self-driving cars or A.I. used in smartphones. However, for a complex A.I., like the one used behind a self-driving  car, the mapping from inputs to outputs cannot be described by a single, well-defined rule, as in the case of summation of two numbers. The relations between the input and output are far too complex for that to happen. The behaviour of the car is governed by a large number of algorithms, programs, databases and the coordination and management of all these computations is a very complex affair. 
+This model of computation is very general and can be matched to almost anything, even to types of A.I. used in self-driving cars or A.I. used in smartphones. However, for a complex A.I., like the one used behind a self-driving  car, the mapping from inputs to outputs cannot be described by a single, well-defined rule, as in the case of summation of two numbers. The relations between the input and output are far too complex for that to happen. The behaviour of the car is governed by a large number of algorithms, programs, databases and the coordination and management of all these computations is a very complex affair.
 
 What is the source of all this complexity, and why is this even considered A.I.?
 Things separating A.I. from conventional software and applications are the following. For A.I.:
@@ -44,7 +46,7 @@ For conventional software:
 * All input data is there, and it is accurate.
 * The input-output relation is perfectly defined and well-understood.
 * Computations are tractable (polynomial time).
-* A.I. applications have some forms of incompleteness, imperfection, unpredictability, and the presence of these difficulties typically require complex algorithms, complex reasoning and inference and learning methods. 
+* A.I. applications have some forms of incompleteness, imperfection, unpredictability, and the presence of these difficulties typically require complex algorithms, complex reasoning and inference and learning methods.
 
 ### A.I. Technologies
 
@@ -79,6 +81,8 @@ In this blog I have tried to introduce the concept A.I. of and pique curiosity a
 All these concepts require a moderate level understanding of data structures and algorithms and a basic understanding of probability theory and linear algebra.
 
 That would be all for this blog. This is my first article and I hope you found it useful. Thank you!
+
+Checkout [Part 2.1]({% post_url 2020-05-17-State-Space-Search %}) and [Part 2.2]({% post_url 2020-05-18-State-Space-Search-Contd %}) of the series to dive deeper into A.I. and learn more.
 
 **Interesting Articles:**
 
