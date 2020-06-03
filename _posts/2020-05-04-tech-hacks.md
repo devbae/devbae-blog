@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Tech Hacks 101"
-subtitle: "Learn some Quick Tech Hacks to make coding easier."
+subtitle: "Learn some Quick Tech Hacks to make your coding tasks easier."
 bg_url: "https://source.unsplash.com/iar-afB0QQw/1200x800"
 tags: [home, hacks, tech-hacks]
 ---
