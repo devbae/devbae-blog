@@ -4,8 +4,8 @@ author: "Shreyas Bapat"
 author_url: https://github.com/shreyasbapat
 title: "Writing Production Grade Code and Distributing it"
 subtitle: "Code that makes everyone happy!"
-bg_url: "https://d2o2utebsixu4k.cloudfront.net/media/images/f8199c55-8d6d-442c-b091-07f759536913.jpg"
-tags: [conda, python, pypi, linting, packaging]
+bg_url: "https://files.realpython.com/media/python-modules-packages-title.e61993fd2eb4.jpg"
+tags: [home, conda, python, pypi, linting, packaging]
 ---
 
 Imagine you are in a desert and you only have one bottle packed in a Japanese puzzle box with no documentation on how to open it.
@@ -65,7 +65,7 @@ You can do this very easily on your own, or just use this awesome [cookiecutter 
 
 ## What will go where?
 
-Considering the fact that you already know how to write `setup.py`, we will now decide how to make the package more modern by moving everything to `setup.cfg`. One very heavy fact (not easily digestible) is that we no longer use `requirements.txt` for dependency management in a package. So all you have to first do is create a `requirements.txt` and leave it blank.
+Considering the fact that you already know how to write `setup.py`, we will now decide how to make the package more modern by moving everything to `setup.cfg`. One very heavy fact (not easily digestible) is that we no longer use `requirements.txt` for dependency management in a package. So all you have to first do it create a `requirements.txt` and leave it blank.
 
 Now, you r `setup.cfg` has to be populated with (Remove all the comments):
 
@@ -96,6 +96,7 @@ classifiers =
         Programming Language :: Python :: 3.7
         Programming Language :: Python :: 3.8
         Topic :: Scientific/Engineering
+
 [options]
 package_dir =
     = src
@@ -111,8 +112,10 @@ install_requires =
         numba >=0.46,!=0.49.0 ; implementation_name=='cpython'
 include_package_data = True
 python_requires = >=3.6
+
 [options.packages.find]
 where = src
+
 [options.extras_require]
 dev =
         black ; python_version>="3.6"
@@ -125,6 +128,7 @@ dev =
         sphinx
         alabaster
         tox
+
 [tool:pytest]
 norecursedirs =
     .git
@@ -139,6 +143,7 @@ markers =
     remote_data
     filterwarnings
     mpl_image_compare
+
 [flake8]
 ignore = E203, E266, E501, W503
 max-line-length = 80
@@ -150,10 +155,14 @@ Your `setup.py` now will just look like:
 
 ```python
 #!/usr/bin/env python
+
 from setuptools import setup
+
 # https://packaging.python.org/guides/single-sourcing-package-version/
 # http://blog.ionelmc.ro/2014/05/25/python-packaging/
+
 setup(setup_cfg=True)
+
 ```
 
 That's it. This is all you have to do.
@@ -172,8 +181,7 @@ You can ignore the rest for now. Now if you look closely, you will find three de
 
 I will start by quoting the zen of Python :
 
-```
-Beautiful is better than ugly.
+> Beautiful is better than ugly.
 Explicit is better than implicit.
 Simple is better than complex.
 Complex is better than complicated.
@@ -192,7 +200,6 @@ Although never is often better than *right* now.
 If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
-```
 
 This `easter egg` was introduced in [PEP 20](https://www.python.org/dev/peps/pep-0020/) and can be reproduced by writing :
 
@@ -212,7 +219,6 @@ To be consistent with surrounding code that also breaks it (maybe for historic r
 Because the code in question predates the introduction of the guideline and there is no other reason to be modifying that code.
 When the code needs to remain compatible with older versions of Python that don't support the feature recommended by the style guide.
 
-
 Keeping this in mind that using PEP 8 can actually hamper the readability of the code, many people stopped using PEP8, and maintainability of the public codes started to go down. You have to understand that while reviewing the submitted patches, you get to look at the diff. Sometimes the diff can be overwhelming. And when the diffs are ignored and few parts of the code are merged without a proper review as they are hard to read, a strong technical debt is introduced which continues for years and is difficult to resolve.
 That's why we should always avoid **Technical Debts**. You must ask if PEP 8 can't help, what can?
 
@@ -220,6 +226,7 @@ The same question came into the mind of a few developers who found simple PEP 8 
 
 In their own words:
 > Black makes code review faster by producing the smallest diffs possible. Blackened code looks the same regardless of the project you’re reading. Formatting becomes transparent after a while and you can focus on the content instead.
+
 In this way, you can use `Black` to format your code and make the same compulsion on all the patches. This will increase readability and maintainability.
 
 There's `isort` as well. It does a magical thing of making all the imports in a consistent order. For example, for a file like this,
@@ -228,6 +235,7 @@ There's `isort` as well. It does a magical thing of making all the imports in a 
 import numpy
 from astropy import units
 import scipy
+
 import main
 import matplotlib
 ```
@@ -239,6 +247,7 @@ import matplotlib
 import numpy
 import scipy
 from astropy import units
+
 import main
 ```
 
@@ -267,20 +276,24 @@ So all you have to do is write good docstrings, understand how sphinx works, and
 def function(x, y):
    """
    Some information about the function.
+
    Parameters
    ----------
    x : type
       Description of parameter `x`.
    y : type, optional
       Description of parameter `y` (with type not specified)
+
    Returns
    -------
    int
       Description of the anonymous integer return value.
+
    Raises
    ------
    LinAlgException
        If the matrix is not numerically invertible.
+
    """
    pass
 ```
@@ -315,7 +328,7 @@ In the end, you will have `sudo apt install python3-packagename` for your packag
 
 You SHOULD ALWAYS NAME YOUR LICENCE FILE AS **COPYING**. Don't ask why, just do it. The reasons for that are beyond the scope of this article.
 
-![licence](https://www2.cs.duke.edu/courses/compsci308/spring17/classwork/opensource/licenses.png)
+[!licence](https://d33wubrfki0l68.cloudfront.net/443123b536cf4c21e0e92f4372e39fb1459bd978/ce7cc/_images/33907149294_82d7535a6c_k_d.jpg)
 
 Your source publication needs a license. In the US, if no license is specified, users have no legal right to download, modify, or distribute. Furthermore, people can’t contribute to your code unless you tell them what rules to play by. Choosing a license is complicated, so here are some pointers:
 
@@ -351,6 +364,6 @@ A good overview of licenses with explanations of what one can, cannot, and must 
 
 Choosing a license is one of the most important tasks as it defines how your software will be used, how it will be cited, how it will be redistributed.
 
-I hope I explained most of the things very well, if you still have doubts, write a mail to me on [hello@shreyasb.com](mailto:hello@shreyasb.com). I will be glad to have a discussion with you. Hope to see more and more Python Packages from the community. Remember, don't think that your code is very basic and does not contribute anything to society. Every bit counts, every second you invest in making a code that does a small task counts. No code is useless.
+I hope I explained most of the things very well, if you still have doubts, write a mail to me on [hello@shreyasb.com](mailto:hello@shreyasb.com). I will be glad to have a discussion with you. Hope to see more and more Python Packages from the community. Remember, don't think that your code is very basic and does not contribute anything to society. Every bit counts, every second you invest in making a code that does a small task counts. No code is useless. 
 
 Happy Coding!
