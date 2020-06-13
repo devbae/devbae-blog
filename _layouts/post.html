@@ -7,7 +7,7 @@ layout: default
 <header class="masthead" style="background-image: url('{{ page.background | prepend: site.baseurl | replace: '//', '/' }}')">
   {% elsif page.bg_url %}
   <header class="masthead" style="background-image: url('{{ page.bg_url }}')">
-  {% else %}
+   {% else %}
   <header class="masthead" style="background-image: url('/img/bg-post.jpg')">
     {% endif %}
     <div class="overlay"></div>
@@ -65,73 +65,129 @@ layout: default
           <!-- For multiple authors -->
           <div class="sidebar-author-details">
 
-            {% if page.author_image_url[forloop.index0] and page.author_image_url[forloop.index0] != "" %}
-            <!-- Image URL -->
-            <div class="author__avatar">
-              <img
-                src="{{ page.author_image_url[forloop.index0] }}"
-                alt="{{ author }}" itemprop="image">
-            </div>
-            {% endif %}
+            {% assign author_details = site.data.authors[page.author_github_id[forloop.index0]] %}
 
-            <!-- Author Name -->
-            <div class="author__content">
-              <h3 class="author__name" itemprop="name">{{ author }}</h3>
+            <!-- Check if the user exists in frequent authors (authors.yml) -->
+            {% if author_details %}
 
-              {% if page.author_bio[forloop.index0] and page.author_bio[forloop.index0] != "" %}
-              <div class="author__bio" itemprop="description">
-                <p>{{ page.author_bio[forloop.index0] }}</p>
+              {% if author_details.avatar and author_details.avatar != "" %}
+                <!-- Image URL -->
+                <div class="author__avatar">
+                  <img src="{{ author_details.avatar }}"
+                    alt="{{ author_details['name'] }}" itemprop="image">
+                </div>
+              {% endif %}
+
+              <!-- Author Name -->
+              <div class="author__content">
+                <h3 class="author__name" itemprop="name">{{ author_details.name }}</h3>
+                
+                {% if author_details.bio and author_details.bio != "" %}
+                  <div class="author__bio" itemprop="description">
+                    <p>{{ author_details.bio }}</p>
+                  </div>
+                {% endif %}
+              </div>
+
+              <!-- Author Links -->
+              <div class="author__urls-wrapper">
+                <button class="btn btn--inverse btn-show-urls">Follow</button>
+                <ul class="author__urls social-icons">
+
+                  <!-- Loop and add the respective links here -->
+                  {% for links in author_details.links %}
+                    <!-- Social Link -->
+                    <li>
+                      <a href="{{ links.url }}" rel="nofollow noopener noreferrer">
+                        <i class="{{ links.icon }}"></i>
+                        <span class="label">{{ links.label }}</span>
+                      </a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div> <!-- End of author links-->
+
+            {% else %}
+            
+              <!-- This shows that this author is not frequent he can add the links of his avatar, twitter, fb, insta and github -->
+              <!-- Add the following in your-post.md -->
+              <!-- Leave the ones empty which are in authors.yml -->
+              <!-- author_image_url: ["https://example.com/author",""] -->
+              <!-- author_bio: ["Author Bio",""] -->
+              <!-- author_github_url: ["https://github.com/id",""] -->
+              <!-- author_facebook_url: ["https://facebook.com/id",""] -->
+              <!-- author_instagram_url: ["https://instagram.com/id",""] -->
+              <!-- author_twitter_url: ["https://twitter.com/id",""] -->
+
+              {% if page.author_image_url[forloop.index0] and page.author_image_url[forloop.index0] != "" %}
+              <!-- Image URL -->
+              <div class="author__avatar">
+                <img
+                  src="{{ page.author_image_url[forloop.index0] }}"
+                  alt="{{ author }}" itemprop="image">
               </div>
               {% endif %}
-            </div>
 
-            <!-- Author Links -->
-            <div class="author__urls-wrapper">
-              <button class="btn btn--inverse btn-show-urls">Follow</button>
-              <ul class="author__urls social-icons">
+              <!-- Author Name -->
+              <div class="author__content">
+                <h3 class="author__name" itemprop="name">{{ author }}</h3>
 
-                {% if page.author_twitter_url[forloop.index0] and page.author_twitter_url[forloop.index0] != "" %}
-                  <!-- Twitter Link -->
-                  <li>
-                    <a href="{{ page.author_twitter_url[forloop.index0] }}" rel="nofollow noopener noreferrer">
-                      <i class="fab fa-fw fa-twitter"></i>
-                      <span class="label">Twitter</span>
-                    </a>
-                  </li>
+                {% if page.author_bio[forloop.index0] and page.author_bio[forloop.index0] != "" %}
+                <div class="author__bio" itemprop="description">
+                  <p>{{ page.author_bio[forloop.index0] }}</p>
+                </div>
                 {% endif %}
+              </div>
 
-                {% if page.author_github_url[forloop.index0] and page.author_github_url[forloop.index0] != "" %}
-                <!-- Github Link -->
-                  <li>
-                    <a href="{{ page.author_github_url[forloop.index0] }}" rel="nofollow noopener noreferrer">
-                      <i class="fab fa-fw fa-github"></i>
-                      <span class="label">GitHub</span>
-                    </a>
-                  </li>
-                {% endif %}
+              <!-- Author Links -->
+              <div class="author__urls-wrapper">
+                <button class="btn btn--inverse btn-show-urls">Follow</button>
+                <ul class="author__urls social-icons">
 
-                {% if page.author_facebook_url[forloop.index0] and page.author_facebook_url[forloop.index0] != "" %}
-                  <!-- Facebook Link -->
-                  <li>
-                    <a href="{{ page.author_facebook_url[forloop.index0] }}" rel="">
-                      <i class="fab fa-fw fa-facebook"></i>
-                      <span class="label">Facebook</span></a>
-                    </a>
-                  </li>
-                {% endif %}
+                  {% if page.author_twitter_url[forloop.index0] and page.author_twitter_url[forloop.index0] != "" %}
+                    <!-- Twitter Link -->
+                    <li>
+                      <a href="{{ page.author_twitter_url[forloop.index0] }}" rel="nofollow noopener noreferrer">
+                        <i class="fab fa-fw fa-twitter"></i>
+                        <span class="label">Twitter</span>
+                      </a>
+                    </li>
+                  {% endif %}
 
-                {% if page.author_instagram_url[forloop.index0] and page.author_instagram_url[forloop.index0] != "" %}
-                  <!-- Instagram Link -->
-                  <li>
-                    <a href="{{ page.author_instagram_url[forloop.index0] }}" rel="nofollow noopener noreferrer">
-                      <i class="fab fa-fw fa-instagram"></i>
-                      <span class="label">Instagram</span>
-                    </a>
-                  </li>
-                {% endif %}
+                  {% if page.author_github_url[forloop.index0] and page.author_github_url[forloop.index0] != "" %}
+                  <!-- Github Link -->
+                    <li>
+                      <a href="{{ page.author_github_url[forloop.index0] }}" rel="nofollow noopener noreferrer">
+                        <i class="fab fa-fw fa-github"></i>
+                        <span class="label">GitHub</span>
+                      </a>
+                    </li>
+                  {% endif %}
 
-              </ul>
-            </div> <!-- End of author links-->
+                  {% if page.author_facebook_url[forloop.index0] and page.author_facebook_url[forloop.index0] != "" %}
+                    <!-- Facebook Link -->
+                    <li>
+                      <a href="{{ page.author_facebook_url[forloop.index0] }}" rel="">
+                        <i class="fab fa-fw fa-facebook"></i>
+                        <span class="label">Facebook</span></a>
+                      </a>
+                    </li>
+                  {% endif %}
+
+                  {% if page.author_instagram_url[forloop.index0] and page.author_instagram_url[forloop.index0] != "" %}
+                    <!-- Instagram Link -->
+                    <li>
+                      <a href="{{ page.author_instagram_url[forloop.index0] }}" rel="nofollow noopener noreferrer">
+                        <i class="fab fa-fw fa-instagram"></i>
+                        <span class="label">Instagram</span>
+                      </a>
+                    </li>
+                  {% endif %}
+
+                </ul>
+              </div> <!-- End of author links for not frequent author -->
+            {% endif %}
+
           </div> <!-- End of sidebar-author-details for multiple authors -->
         <hr>
 
@@ -142,72 +198,127 @@ layout: default
         <!-- For single author -->
         <div class="sidebar-author-details">
         
-          {% if page.author_image_url and page.author_image_url != "" %}
-            <!-- Image URL -->
-            <div class="author__avatar">
-              <img src="{{ page.author_image_url }}"
-                alt="{{ authors }}" itemprop="image">
-            </div>
-          {% endif %}
-        
-          <!-- Author Name -->
-          <div class="author__content">
-            <h3 class="author__name" itemprop="name">{{ authors }}</h3>
-            
-            {% if page.author_bio and page.author_bio != "" %}
-              <div class="author__bio" itemprop="description">
-                <p>{{ page.author_bio }}</p>
+          {% assign author_details = site.data.authors[page.author_github_id] %}
+
+          <!-- Check if the user exists in frequent authors (authors.yml) -->
+          {% if author_details %}
+
+            {% if author_details.avatar and author_details.avatar != "" %}
+              <!-- Image URL -->
+              <div class="author__avatar">
+                <img src="{{ author_details.avatar }}"
+                  alt="{{ author_details['name'] }}" itemprop="image">
               </div>
             {% endif %}
-          </div>
-        
-          <!-- Author Links -->
-          <div class="author__urls-wrapper">
-            <button class="btn btn--inverse btn-show-urls">Follow</button>
-            <ul class="author__urls social-icons">
-        
-              {% if page.author_twitter_url and page.author_twitter_url != "" %}
-                <!-- Twitter Link -->
-                <li>
-                  <a href="{{ page.author_twitter_url }}" rel="nofollow noopener noreferrer">
-                    <i class="fab fa-fw fa-twitter"></i>
-                    <span class="label">Twitter</span>
-                  </a>
-                </li>
+
+            <!-- Author Name -->
+            <div class="author__content">
+              <h3 class="author__name" itemprop="name">{{ author_details.name }}</h3>
+              
+              {% if author_details.bio and author_details.bio != "" %}
+                <div class="author__bio" itemprop="description">
+                  <p>{{ author_details.bio }}</p>
+                </div>
               {% endif %}
-        
-              {% if page.author_github_url and page.author_github_url != "" %}
-                <!-- Github Link -->
-                <li>
-                  <a href="{{ page.author_github_url }}" rel="nofollow noopener noreferrer">
-                    <i class="fab fa-fw fa-github"></i>
-                    <span class="label">GitHub</span>
-                  </a>
-                </li>
+            </div>
+
+            <!-- Author Links -->
+            <div class="author__urls-wrapper">
+              <button class="btn btn--inverse btn-show-urls">Follow</button>
+              <ul class="author__urls social-icons">
+
+                <!-- Loop and add the respective links here -->
+                {% for links in author_details.links %}
+                  <!-- Social Link -->
+                  <li>
+                    <a href="{{ links.url }}" rel="nofollow noopener noreferrer">
+                      <i class="{{ links.icon }}"></i>
+                      <span class="label">{{ links.label }}</span>
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div> <!-- End of author links-->
+
+          {% else %}
+          
+            <!-- If the author is not frequent he can add the links of his avatar, twitter, fb, insta and github -->
+            <!-- Add the following in your-post.md -->
+            <!-- author_image_url: "https://example.com/" -->
+            <!-- author_bio: "Author Bio" -->
+            <!-- author_github_url: "https://github.com/id" -->
+            <!-- author_facebook_url: "https://facebook.com/id" -->
+            <!-- author_instagram_url: "https://instagram.com/id" -->
+            <!-- author_twitter_url: "https://twitter.com/id" -->
+
+            {% if page.author_image_url and page.author_image_url != "" %}
+              <!-- Image URL -->
+              <div class="author__avatar">
+                <img src="{{ page.author_image_url }}"
+                  alt="{{ authors }}" itemprop="image">
+              </div>
+            {% endif %}
+          
+            <!-- Author Name -->
+            <div class="author__content">
+              <h3 class="author__name" itemprop="name">{{ authors }}</h3>
+              
+              {% if page.author_bio and page.author_bio != "" %}
+                <div class="author__bio" itemprop="description">
+                  <p>{{ page.author_bio }}</p>
+                </div>
               {% endif %}
-        
-              {% if page.author_facebook_url and page.author_facebook_url != "" %}
-                <!-- Facebook Link -->
-                <li>
-                  <a href="{{ page.author_facebook_url }}" rel="">
-                    <i class="fab fa-fw fa-facebook-square"></i>
-                    <span class="label">Facebook</span></a>
-                  </a>
-                </li>
-              {% endif %}
-        
-              {% if page.author_instagram_url and page.author_instagram_url != "" %}
-                <!-- Instagram Link -->
-                <li>
-                  <a href="{{ page.author_instagram_url }}" rel="nofollow noopener noreferrer">
-                    <i class="fab fa-fw fa-instagram"></i>
-                    <span class="label">Instagram</span>
-                  </a>
-                </li>
-              {% endif %}
-        
-            </ul>
-          </div> <!-- End of author links-->
+            </div>
+          
+            <!-- Author Links -->
+            <div class="author__urls-wrapper">
+              <button class="btn btn--inverse btn-show-urls">Follow</button>
+              <ul class="author__urls social-icons">
+          
+                {% if page.author_twitter_url and page.author_twitter_url != "" %}
+                  <!-- Twitter Link -->
+                  <li>
+                    <a href="{{ page.author_twitter_url }}" rel="nofollow noopener noreferrer">
+                      <i class="fab fa-fw fa-twitter"></i>
+                      <span class="label">Twitter</span>
+                    </a>
+                  </li>
+                {% endif %}
+          
+                {% if page.author_github_url and page.author_github_url != "" %}
+                  <!-- Github Link -->
+                  <li>
+                    <a href="{{ page.author_github_url }}" rel="nofollow noopener noreferrer">
+                      <i class="fab fa-fw fa-github"></i>
+                      <span class="label">GitHub</span>
+                    </a>
+                  </li>
+                {% endif %}
+          
+                {% if page.author_facebook_url and page.author_facebook_url != "" %}
+                  <!-- Facebook Link -->
+                  <li>
+                    <a href="{{ page.author_facebook_url }}" rel="">
+                      <i class="fab fa-fw fa-facebook-square"></i>
+                      <span class="label">Facebook</span></a>
+                    </a>
+                  </li>
+                {% endif %}
+          
+                {% if page.author_instagram_url and page.author_instagram_url != "" %}
+                  <!-- Instagram Link -->
+                  <li>
+                    <a href="{{ page.author_instagram_url }}" rel="nofollow noopener noreferrer">
+                      <i class="fab fa-fw fa-instagram"></i>
+                      <span class="label">Instagram</span>
+                    </a>
+                  </li>
+                {% endif %}
+          
+              </ul>
+            </div> <!-- End of author links-->
+
+          {% endif %}
         </div> <!-- End of sidebar-author-details for multiple authors -->
 
         <!-- End of if which checks if the site authors are present or not -->
