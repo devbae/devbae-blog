@@ -49,6 +49,7 @@
   }
 }
 
+/* For smaller device like mobile coverting sidebar to top */
 @media (max-width: 992px) {
   /* Right now sidebar is not created for mobile devices */
   .author__avatar img {
@@ -140,6 +141,7 @@
   }
 }
 
+/* The ones which are general irrespective of the small or large */
 .author__name {
   font-family: 'Lora', 'Times New Roman', serif;
   margin-bottom: 0;

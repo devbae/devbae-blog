@@ -17,30 +17,30 @@ layout: default
           <div class="post-heading">
             <h1>{{ page.title }}</h1>
             {% if page.subtitle %}
-            <h2 class="subheading">{{ page.subtitle }}</h2>
+              <h2 class="subheading">{{ page.subtitle }}</h2>
             {% endif %}
 
             {% if page.author %}
-            {% assign authors = page.author %}
+              {% assign authors = page.author %}
             {% else %}
-            {% assign authors = site.author %}
+              {% assign authors = site.author %}
             {% endif %}
 
             <span class="meta">Posted by
               {% if authors.first %}
                 {% for author in authors %}
-                {% if page.author_url[forloop.index0] %}
-                <a target="_blank"
-                  href="{{ page.author_url[forloop.index0] }}">{{ author }}</a>{% unless forloop.last %},{% endunless %}
-                {% else %}
-                {{ author }}{% unless forloop.last %},{% endunless %}
-                {% endif %}
+                  {% if page.author_url[forloop.index0] %}
+                  <a target="_blank"
+                    href="{{ page.author_url[forloop.index0] }}">{{ author }}</a>{% unless forloop.last %},{% endunless %}
+                  {% else %}
+                  {{ author }}{% unless forloop.last %},{% endunless %}
+                  {% endif %}
                 {% endfor %}
               {% else %}
                 {% if page.author_url %}
-                <a target="_blank" href="{{ page.author_url }}">{{ authors }}</a>
+                  <a target="_blank" href="{{ page.author_url }}">{{ authors }}</a>
                 {% else %}
-                {{ authors }}
+                  {{ authors }}
                 {% endif %}
               {% endif %}
               on {{ page.date | date: '%B %d, %Y' }} &middot; {% include read_time.html
