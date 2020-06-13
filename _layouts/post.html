@@ -65,7 +65,8 @@ layout: default
           <!-- For multiple authors -->
           <div class="sidebar-author-details">
 
-            {% assign author_details = site.data.authors[page.author_github_id[forloop.index0]] %}
+            {% assign author_loop_github_id = page.author_github_id[forloop.index0] %}
+            {% assign author_details = site.data.authors[author_loop_github_id] %}
 
             <!-- Check if the user exists in frequent authors (authors.yml) -->
             {% if author_details %}
@@ -211,7 +212,7 @@ layout: default
               </div>
             {% endif %}
 
-            <!-- Author Name -->
+            <!-- Devbae Name -->
             <div class="author__content">
               <h3 class="author__name" itemprop="name">{{ author_details.name }}</h3>
               
@@ -239,7 +240,7 @@ layout: default
                 {% endfor %}
               </ul>
             </div> <!-- End of author links-->
-
+                
           {% else %}
           
             <!-- If the author is not frequent he can add the links of his avatar, twitter, fb, insta and github -->
@@ -326,8 +327,50 @@ layout: default
     </div> <!-- End of sidebar -->
 
     {% else %}
-    {% assign authors = site.author %}
-    <!-- sidebar not shown as no page author -->
+    <div id="sidebar">
+      <div class="sidebar-author-details">
+        <!-- No Page Author -->
+        <!-- This block shows that it is devbae written article so add that from there -->
+        {% assign author_details = site.data.authors['DevBae'] %}
+
+        {% if author_details.avatar and author_details.avatar != "" %}
+          <!-- Image URL -->
+          <div class="author__avatar">
+            <img src="{{ author_details.avatar }}"
+              alt="{{ author_details['name'] }}" itemprop="image">
+          </div>
+        {% endif %}
+
+        <!-- Devbae Name -->
+        <div class="author__content">
+          <h3 class="author__name" itemprop="name">{{ author_details.name }}</h3>
+          
+          {% if author_details.bio and author_details.bio != "" %}
+            <div class="author__bio" itemprop="description">
+              <p>{{ author_details.bio }}</p>
+            </div>
+          {% endif %}
+        </div>
+
+        <!-- Author Links -->
+        <div class="author__urls-wrapper">
+          <button class="btn btn--inverse btn-show-urls">Follow</button>
+          <ul class="author__urls social-icons">
+
+            <!-- Loop and add the respective links here -->
+            {% for links in author_details.links %}
+              <!-- Social Link -->
+              <li>
+                <a href="{{ links.url }}" rel="nofollow noopener noreferrer">
+                  <i class="{{ links.icon }}"></i>
+                  <span class="label">{{ links.label }}</span>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div> <!-- End of author links-->
+      </div> <!-- End of inner sidebar -->
+    </div> <!-- End of sidebar -->
     {% endif %}
 
     <div class="container">
