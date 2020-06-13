@@ -42,15 +42,15 @@ layout: default
                 {% else %}
                 {{ authors }}
                 {% endif %}
-                {% endif %}
-                on {{ page.date | date: '%B %d, %Y' }} &middot; {% include read_time.html
+              {% endif %}
+              on {{ page.date | date: '%B %d, %Y' }} &middot; {% include read_time.html
               content=page.content %}
-              </span>
-            </div>
+            </span>
           </div>
         </div>
       </div>
-    </header>
+    </div>
+  </header>
 
     <!-- Get the Details -->
     {% if page.author %}
