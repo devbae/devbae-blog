@@ -3,14 +3,104 @@
   width: 100%;
 }
 
+/* For the sidebar in tablets and laptop */
+@media (min-width: 992px){
+  #sidebar {
+    float: left;
+    width: 20%;
+    position: sticky;
+    z-index: 1;
+    top: 0px;
+    left: 50px;
+    font-size: 16px;
+    padding-top: 40px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-bottom: 10px;
+    margin-right: -100px;
+  }
+
+  .author__avatar img {
+    min-width: 120px !important;
+  }
+
+  .author__content {
+    padding-top: 10px;
+    padding-left: 4px;
+  }
+
+  .author__bio p {
+    margin-top: 2px;
+    margin-bottom: 10px;
+  }
+
+  .sidebar-author-details {
+    padding-top: 24px;
+  }
+}
+
+@media (max-width: 992px) {
+  /* Right now sidebar is not created for mobile devices */
+  #sidebar {
+    display: none;
+  }
+}
+
+.author__avatar img {
+  width: 40%;
+  border-radius: 50%;
+}
+
 #sidebar {
-  width: 250px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  z-index: 999;
-  background: #7386D5;
-  color: #fff;
-  transition: all 0.3s;
+  opacity: 0.75;
+  box-sizing: border-box;
+}
+
+#sidebar:hover {
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.author__urls {
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  list-style-type: none;
+  padding-left: 4px;
+}
+
+author__urls li {
+  white-space: nowrap;
+}
+
+.author__urls-wrapper .author__urls span.label {
+  padding-left: 5px;
+}
+
+.author__urls a {
+  display: block;
+  margin-bottom: 5px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  color: inherit;
+  font-size: 1em;
+  text-decoration: none;
+}
+
+.fa-twitter-square {
+  color: #55acee;
+}
+
+.social-icons .fa-instagram {
+  color: #517fa4;
+}
+
+.author__urls a:hover {
+  text-decoration: underline;
 }
