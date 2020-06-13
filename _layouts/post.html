@@ -373,39 +373,38 @@ layout: default
     </div> <!-- End of sidebar -->
     {% endif %}
 
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-12 mx-auto">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-12 mx-auto">
 
-          {{ content }}
+        {{ content }}
 
-          <hr>
+        <hr>
 
-          {% include social-share.html %}
+        {% include social-share.html %}
 
-          {% if page.comments != false %}
+        {% if page.comments != false %}
           {% include comments.html %}
           <hr>
-          {% endif %}
+        {% endif %}
 
 
-          <div class="clearfix">
+        <div class="clearfix">
 
-            {% if page.previous.url %}
+          {% if page.previous.url %}
             <a class="btn btn-primary float-left"
               href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip"
               data-placement="top" title="{{ page.previous.title }}">&larr; Previous<span class="d-none d-md-inline">
                 Post</span></a>
-            {% endif %}
-            {% if page.next.url %}
+          {% endif %}
+          {% if page.next.url %}
             <a class="btn btn-primary float-right"
               href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip"
               data-placement="top" title="{{ page.next.title }}">Next<span class="d-none d-md-inline">
                 Post</span> &rarr;</a>
-            {% endif %}
-
-          </div>
+          {% endif %}
 
         </div>
       </div>
     </div>
+  </div>
