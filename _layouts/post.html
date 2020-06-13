@@ -89,6 +89,7 @@ layout: default
 
         <!-- Author Links -->
         <div class="author__urls-wrapper">
+          <button class="btn btn--inverse btn-show-urls">Follow</button>
           <ul class="author__urls social-icons">
 
             {% if page.author_twitter_url[forloop.index0] and page.author_twitter_url[forloop.index0] != "" %}
@@ -156,11 +157,12 @@ layout: default
           </ul>
         </div> <!-- End of author links-->
       </div> <!-- End of sidebar-author-details for multiple authors -->
+      <hr>
 
       {% endfor %}
       {% else %}
 
-      <!-- For multiple authors -->
+      <!-- For single author -->
       <div class="sidebar-author-details">
       
         {% if page.author_image_url and page.author_image_url != "" %}
@@ -184,6 +186,7 @@ layout: default
       
         <!-- Author Links -->
         <div class="author__urls-wrapper">
+          <button class="btn btn--inverse btn-show-urls">Follow</button>
           <ul class="author__urls social-icons">
       
             {% if page.author_twitter_url and page.author_twitter_url != "" %}
@@ -260,7 +263,7 @@ layout: default
 
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="col-lg-8 col-md-12 mx-auto">
 
           {{ content }}
 
