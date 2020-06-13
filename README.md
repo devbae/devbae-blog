@@ -11,6 +11,7 @@
     ```bash
     gem install jekyll bundler
     ```
+    If you're on macOS, you may want to add `-n /usr/local/bin` to specify executables' directory. See [this](https://jekyllrb.com/docs/troubleshooting/#jekyll--macos) for explanation.
 
 3. Fork this repo and clone your forked repo, by running the `clone` command:
 
