@@ -7,7 +7,7 @@ layout: default
 <header class="masthead" style="background-image: url('{{ page.background | prepend: site.baseurl | replace: '//', '/' }}')">
   {% elsif page.bg_url %}
   <header class="masthead" style="background-image: url('{{ page.bg_url }}')">
-    {% else %}
+  {% else %}
   <header class="masthead" style="background-image: url('/img/bg-post.jpg')">
     {% endif %}
     <div class="overlay"></div>
@@ -30,10 +30,9 @@ layout: default
               {% if authors.first %}
                 {% for author in authors %}
                   {% if page.author_url[forloop.index0] %}
-                  <a target="_blank"
-                    href="{{ page.author_url[forloop.index0] }}">{{ author }}</a>{% unless forloop.last %},{% endunless %}
+                    <a target="_blank" href="{{ page.author_url[forloop.index0] }}">{{ author }}</a>{% unless forloop.last %},{% endunless %}
                   {% else %}
-                  {{ author }}{% unless forloop.last %},{% endunless %}
+                    {{ author }}{% unless forloop.last %},{% endunless %}
                   {% endif %}
                 {% endfor %}
               {% else %}
@@ -52,7 +51,7 @@ layout: default
     </div>
   </header>
 
-    <!-- Get the Details -->
+    <!-- Get the Details for sidebar -->
     {% if page.author %}
       {% assign authors = page.author %}
       
