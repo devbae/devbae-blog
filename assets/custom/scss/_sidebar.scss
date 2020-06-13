@@ -214,3 +214,14 @@ author__urls li {
 .author__urls a:hover {
   text-decoration: underline;
 }
+
+@media (min-width: 1232px) {
+  #sidebar {
+    left: 8%;
+  }
+}
+@media (min-width: 1600px) {
+  #sidebar{
+    left: 12%;
+  }
+}
