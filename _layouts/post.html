@@ -65,7 +65,7 @@ layout: default
           <!-- For multiple authors -->
           <div class="sidebar-author-details">
 
-            {% assign author_loop_github_id = page.author_github_id[forloop.index0] %}
+            {% assign author_loop_github_id = page.author[forloop.index0] %}
             {% assign author_details = site.data.authors[author_loop_github_id] %}
 
             <!-- Check if the user exists in frequent authors (authors.yml) -->
@@ -199,7 +199,7 @@ layout: default
         <!-- For single author -->
         <div class="sidebar-author-details">
         
-          {% assign author_details = site.data.authors[page.author_github_id] %}
+          {% assign author_details = site.data.authors[page.author] %}
 
           <!-- Check if the user exists in frequent authors (authors.yml) -->
           {% if author_details %}
