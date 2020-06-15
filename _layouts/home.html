@@ -68,7 +68,7 @@ layout: default
                   {% if site.data.authors[post.author] %}
                     <a target="_blank" href="https://github.com/{{ post.author }}">{{ site.data.authors[post.author].name }}</a>
                   {% elsif post.author and post.author_github_id and post.author_github_id != "" %}
-                    <a target="_blank" href="https://github.com/{{ post.author_github_id }}">{{ authors }}</a>{% unless forloop.last %},{% endunless %}
+                    <a target="_blank" href="https://github.com/{{ post.author_github_id }}">{{ authors }}</a>
                   {% else %}
                     {{ authors }}
                   {% endif %}
