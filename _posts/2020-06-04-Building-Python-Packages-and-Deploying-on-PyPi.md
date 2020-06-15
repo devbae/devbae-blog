@@ -1,7 +1,6 @@
 ---
 layout: post
-author: "Palak Gupta"
-author_url: https://github.com/palakgupta889
+author: "palakgupta889"
 title: "Building Python Packages and Deploying on PyPI"
 subtitle: "Understanding Python Package Index"
 home_subtitle: "Build and deploy packages on PyPI"

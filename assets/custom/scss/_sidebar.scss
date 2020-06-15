@@ -3,14 +3,227 @@
   width: 100%;
 }
 
-#sidebar {
-  width: 250px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  z-index: 999;
-  background: #7386D5;
-  color: #fff;
-  transition: all 0.3s;
+/* For the sidebar in tablets and laptop */
+@media (min-width: 992px){
+  #sidebar {
+    float: left;
+    width: 15%;
+    position: sticky;
+    z-index: 1;
+    top: 0px;
+    left: 50px;
+    font-size: 16px;
+    padding-top: 40px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-bottom: 10px;
+    margin-right: -100px;
+  }
+
+  .author__avatar img {
+    min-width: 120px !important;
+  }
+
+  .author__content {
+    padding-top: 10px;
+    padding-left: 4px;
+  }
+
+  .sidebar-author-details {
+    padding-top: 24px;
+  }
+
+  .btn-show-urls {
+    display: none;
+  }
+
+  #sidebar {
+    opacity: 0.75;
+    box-sizing: border-box;
+  }
+  
+  #sidebar:hover {
+    -webkit-transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
+    opacity: 1;
+  }
+}
+
+/* For smaller device like mobile coverting sidebar to top */
+@media (max-width: 992px) {
+  /* Right now sidebar is not created for mobile devices */
+  .author__avatar img {
+    width: 100% !important;
+  }
+
+  .sidebar-author-details {
+    display: flex;
+  }
+
+  .author__avatar {
+    width: 50px;
+  }
+
+  #sidebar {
+    margin-top: -30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .author__content {
+    padding-left: 18px;
+  }
+
+  .author__urls-wrapper {
+    float: right;
+    margin-left: auto;
+    order: 2;
+  }
+
+  .btn-show-urls{
+    display: block;
+    margin-right: 10px;
+    font-size: 10px;
+  }
+
+  .author__urls-wrapper ul {
+    display: none;
+    position: absolute;
+    background: #fff;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    margin-top: 15px;
+    margin-right: 10px;
+    margin-left: -30px;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    z-index: 999;
+  }
+
+  .author__urls:before {
+    display: block;
+    content: "";
+    position: absolute;
+    top: -11px;
+    left: calc(50% - 10px);
+    width: 0;
+    border-style: solid;
+    border-width: 0 10px 10px;
+    border-color: #f2f3f3 transparent;
+    z-index: 0;
+  }
+  
+  .author__urls:after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: calc(50% - 10px);
+    width: 0;
+    border-style: solid;
+    border-width: 0 10px 10px;
+    border-color: #fff transparent;
+    z-index: 1;
+  }
+
+  .btn-show-urls:focus {
+    box-shadow: none;
+    outline: 5px auto #6f777d;
+    outline-offset: -2px;
+  }
+
+  .author__name {
+    font-size: larger;
+  }
+
+  .author__bio {
+    font-size: small;
+  }
+}
+
+/* The ones which are general irrespective of the small or large */
+.author__name {
+  font-family: 'Lora', 'Times New Roman', serif;
+  margin-bottom: 0;
+}
+
+.is--visible {
+  display: block !important;
+}
+
+.author__avatar img {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.author__bio p {
+  margin-top: 2px;
+  margin-bottom: 10px;
+}
+
+.btn--inverse:hover {
+  background-color: #ccc;
+  color: #3d4144;
+}
+
+.btn--inverse {
+  background-color: #fff;
+  color: #3d4144;
+  border: 1px solid #f2f3f3;
+  border-radius: 4px;
+  padding: 10px 15px;
+}
+
+.author__urls {
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  list-style-type: none;
+  padding-left: 4px;
+}
+
+author__urls li {
+  white-space: nowrap;
+}
+
+.author__urls-wrapper .author__urls span.label {
+  padding-left: 5px;
+}
+
+.author__urls a {
+  display: block;
+  margin-bottom: 5px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  color: inherit;
+  font-size: 1.2em;
+  text-decoration: none;
+}
+
+.fa-twitter {
+  color: #55acee;
+}
+
+.social-icons .fa-instagram {
+  color: #517fa4;
+}
+
+.author__urls a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 1232px) {
+  #sidebar {
+    left: 8%;
+  }
+}
+@media (min-width: 1600px) {
+  #sidebar{
+    left: 12%;
+  }
 }

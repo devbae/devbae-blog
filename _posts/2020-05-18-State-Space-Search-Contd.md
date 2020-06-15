@@ -1,7 +1,6 @@
 ---
 layout: post
-author: "Utkarsh Jain"
-author_url: https://github.com/the-utkarshjain
+author: "the-utkarshjain"
 title: "Artificial Intelligence - Part 2.2"
 subtitle: "State-Space and Informed Search"
 bg_url: "https://blog-c7ff.kxcdn.com/blog/wp-content/uploads/2017/04/AI_blog.jpg"

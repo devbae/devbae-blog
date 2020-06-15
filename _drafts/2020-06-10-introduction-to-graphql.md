@@ -1,7 +1,6 @@
 ---
 layout: post
-author: "Pranshu Kharkwal"
-author_url: https://github.com/pranshukharkwal
+author: "pranshukharkwal"
 title: "Introduction to GraphQL"
 subtitle: "The future of APIs?"
 bg_url: "https://i.imgur.com/4BVtURe.png"
