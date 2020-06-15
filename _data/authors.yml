@@ -51,6 +51,24 @@ DevBae:
     - label: "Website"
       icon: "fas fa-fw fa-link"
       url: "https://devbae.tech" 
+      
+aroralakshya:
+  name        : "Lakshya Arora"
+  bio         : "Member, DevBae"
+  avatar      : "https://avatars2.githubusercontent.com/u/20344314"
+  links:
+    - label: "Email"
+      icon: "fas fa-envelope-square"
+      url: "mailto:arora.lakshya123@gmail.com"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/aroralakshya"
+    - label: "Linkedin"
+      icon: "fab fa-linkedin"
+      url: "https://www.linkedin.com/in/lakshya-arora-8122b2137/"
+    - label: "Instagram"
+      icon: "fab fa-instagram"
+      url: "https://instagram.com/lakshya_arora__"
 
 the-utkarshjain:
   name        : "Utkarsh Jain"
@@ -90,18 +108,18 @@ palakgupta889:
 
 pranshukharkwal:
   name        : "Pranshu Kharkwal"
-  bio         : ""
+  bio         : "Undergrad student at IIT Mandi, Web & App developer, Ghostwriter, exploring open source, one commit at a time."
   avatar      : "https://avatars0.githubusercontent.com/u/21126219?s=460&v=4"
   links:
     - label: "Email"
       icon: "fas fa-envelope-square"
-      url: "#"
+      url: "mailto:pranshukharkwal08@gmail.com"
     - label: "GitHub"
       icon: "fab fa-github"
-      url: "#"
-    - label: "Linkedin"
-      icon: "fab fa-linkedin"
-      url: "#"
+      url: "https://github.com/pranshukharkwal"
+    - label: "Facebook"
+      icon: "fab fa-facebook"
+      url: "https://facebook.com/kharkwalpranshu"
     - label: "Instagram"
       icon: "fab fa-instagram"
-      url: "#"
+      url: "https://www.instagram.com/hellopranshu"
