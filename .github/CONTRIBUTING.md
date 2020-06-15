@@ -55,19 +55,33 @@ git checkout -b branch-name
 
 - Create a new file for your article/blog in the `_posts` folder. The format of your file should be like `yyyy-mm-dd-title-of-article.md`, following this naming convention is very important as jekyll would not be able to read your post otherwise.
 
-- In your article/blog file, add the following jekyll-liquid header at the beginning of your file, which is required, without it jekyll would not be able to read your post.
+- If you're a frequent blogger, then add your profile in `_data/authors.yml` file and if you don't want to do that, add the following fields to the YAML frontmatter of the post.
+
+```yaml
+---
+# Remove the ones which you don't want to keep.
+author_image_url: "https://example.com/author"
+author_bio: "Author Bio"
+author_linkedin_url: "https://linkedin.com/in/id"
+author_github_url: "https://github.com/id"
+author_facebook_url: "https://facebook.com/id"
+author_instagram_url: "https://instagram.com/id"
+author_twitter_url: "https://twitter.com/id"
+---
+```
+
+- In your article/blog file, add the following YAML frontmatter in the beginning of your file, which is required, without it jekyll would not be able to read your post.
 
 ```bash
 ---
 layout: post
-author: "<Your Name>"
-author_url: <Your github profile url>
+author: "<Your Name/ Github Username>" # If you've added your profile in authors.yml then only use github username
+author_github_id: <Your github username> # Remove this if you've already added your profile in authors.yml
+
 title: "<Your article title>"
 subtitle: "<Your article subtitle (optional)>"
 bg_url: "<A relevant BG image url>"
-tags: [home]
-home_title: "<Simplified Title for homepage>"
-home_subtitle: "<Simplified subtitle for hompage>"
+tags: [<your custom tags>]
 ---
 ```
 

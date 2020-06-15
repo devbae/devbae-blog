@@ -29,15 +29,21 @@ layout: default
             <span class="meta">Posted by
               {% if authors.first %}
                 {% for author in authors %}
-                  {% if page.author_url[forloop.index0] %}
-                    <a target="_blank" href="{{ page.author_url[forloop.index0] }}">{{ author }}</a>{% unless forloop.last %},{% endunless %}
+                  {% if site.data.authors[author] %}
+                    <a target="_blank" href="https://github.com/{{ author }}">{{ site.data.authors[author].name }}</a>{% unless forloop.last %},{% endunless %}
                   {% else %}
-                    {{ author }}{% unless forloop.last %},{% endunless %}
+                    {% if page.author_github_id[forloop.index0] and page.author_github_id[forloop.index0] != "" %}
+                      <a target="_blank" href="https://github.com/{{ page.author_github_id[forloop.index0] }}">{{ author }}</a>{% unless forloop.last %},{% endunless %}
+                    {% else %}
+                      {{ author }}{% unless forloop.last %},{% endunless %}
+                    {% endif %}
                   {% endif %}
                 {% endfor %}
               {% else %}
-                {% if page.author_url %}
-                  <a target="_blank" href="{{ page.author_url }}">{{ authors }}</a>
+                {% if site.data.authors[page.author] %}
+                  <a target="_blank" href="https://github.com/{{ page.author }}">{{ site.data.authors[page.author].name }}</a>
+                {% elsif page.author and page.author_github_id and page.author_github_id != "" %}
+                  <a target="_blank" href="https://github.com/{{ page.author_github_id }}">{{ authors }}</a>{% unless forloop.last %},{% endunless %}
                 {% else %}
                   {{ authors }}
                 {% endif %}
@@ -99,7 +105,7 @@ layout: default
                   {% for links in author_details.links %}
                     <!-- Social Link -->
                     <li>
-                      <a href="{{ links.url }}" rel="nofollow noopener noreferrer">
+                      <a target="_blank" href="{{ links.url }}" rel="nofollow noopener noreferrer">
                         <i class="{{ links.icon }}"></i>
                         <span class="label">{{ links.label }}</span>
                       </a>
@@ -148,17 +154,28 @@ layout: default
                   {% if page.author_twitter_url[forloop.index0] and page.author_twitter_url[forloop.index0] != "" %}
                     <!-- Twitter Link -->
                     <li>
-                      <a href="{{ page.author_twitter_url[forloop.index0] }}" rel="nofollow noopener noreferrer">
+                      <a target="_blank" target="_blank" href="{{ page.author_twitter_url[forloop.index0] }}" rel="nofollow noopener noreferrer">
                         <i class="fab fa-fw fa-twitter"></i>
                         <span class="label">Twitter</span>
                       </a>
                     </li>
                   {% endif %}
 
+                  {% if page.author_linkedin_url[forloop.index0] and page.author_linkedin_url[forloop.index0] != "" %}
+                  <!-- Twitter Link -->
+                  <li>
+                    <a target="_blank" target="_blank" href="{{ page.author_linkedin_url[forloop.index0] }}"
+                      rel="nofollow noopener noreferrer">
+                      <i class="fab fa-fw fa-linkedin"></i>
+                      <span class="label">Linkedin</span>
+                    </a>
+                  </li>
+                  {% endif %}
+
                   {% if page.author_github_url[forloop.index0] and page.author_github_url[forloop.index0] != "" %}
                   <!-- Github Link -->
                     <li>
-                      <a href="{{ page.author_github_url[forloop.index0] }}" rel="nofollow noopener noreferrer">
+                      <a target="_blank" href="{{ page.author_github_url[forloop.index0] }}" rel="nofollow noopener noreferrer">
                         <i class="fab fa-fw fa-github"></i>
                         <span class="label">GitHub</span>
                       </a>
@@ -168,7 +185,7 @@ layout: default
                   {% if page.author_facebook_url[forloop.index0] and page.author_facebook_url[forloop.index0] != "" %}
                     <!-- Facebook Link -->
                     <li>
-                      <a href="{{ page.author_facebook_url[forloop.index0] }}" rel="">
+                      <a target="_blank" href="{{ page.author_facebook_url[forloop.index0] }}" rel="">
                         <i class="fab fa-fw fa-facebook"></i>
                         <span class="label">Facebook</span></a>
                       </a>
@@ -178,7 +195,7 @@ layout: default
                   {% if page.author_instagram_url[forloop.index0] and page.author_instagram_url[forloop.index0] != "" %}
                     <!-- Instagram Link -->
                     <li>
-                      <a href="{{ page.author_instagram_url[forloop.index0] }}" rel="nofollow noopener noreferrer">
+                      <a target="_blank" href="{{ page.author_instagram_url[forloop.index0] }}" rel="nofollow noopener noreferrer">
                         <i class="fab fa-fw fa-instagram"></i>
                         <span class="label">Instagram</span>
                       </a>
@@ -232,7 +249,7 @@ layout: default
                 {% for links in author_details.links %}
                   <!-- Social Link -->
                   <li>
-                    <a href="{{ links.url }}" rel="nofollow noopener noreferrer">
+                    <a target="_blank" href="{{ links.url }}" rel="nofollow noopener noreferrer">
                       <i class="{{ links.icon }}"></i>
                       <span class="label">{{ links.label }}</span>
                     </a>
@@ -258,6 +275,10 @@ layout: default
                 <img src="{{ page.author_image_url }}"
                   alt="{{ authors }}" itemprop="image">
               </div>
+            {% else %}
+              <div class="author__avatar">
+                <img src="https://thumbs.dreamstime.com/b/default-avatar-profile-vector-user-profile-default-avatar-profile-vector-user-profile-profile-179376714.jpg" alt="{{ authors }}" itemprop="image">
+              </div>
             {% endif %}
           
             <!-- Author Name -->
@@ -279,17 +300,27 @@ layout: default
                 {% if page.author_twitter_url and page.author_twitter_url != "" %}
                   <!-- Twitter Link -->
                   <li>
-                    <a href="{{ page.author_twitter_url }}" rel="nofollow noopener noreferrer">
+                    <a target="_blank" target="_blank" href="{{ page.author_twitter_url }}" rel="nofollow noopener noreferrer">
                       <i class="fab fa-fw fa-twitter"></i>
                       <span class="label">Twitter</span>
                     </a>
                   </li>
                 {% endif %}
-          
+                
+                {% if page.author_linkedin_url and page.author_linkedin_url != "" %}
+                <!-- Github Link -->
+                <li>
+                  <a target="_blank" href="{{ page.author_linkedin_url }}" rel="nofollow noopener noreferrer">
+                    <i class="fab fa-fw fa-linkedin"></i>
+                    <span class="label">Linkedin</span>
+                  </a>
+                </li>
+                {% endif %}
+
                 {% if page.author_github_url and page.author_github_url != "" %}
                   <!-- Github Link -->
                   <li>
-                    <a href="{{ page.author_github_url }}" rel="nofollow noopener noreferrer">
+                    <a target="_blank" href="{{ page.author_github_url }}" rel="nofollow noopener noreferrer">
                       <i class="fab fa-fw fa-github"></i>
                       <span class="label">GitHub</span>
                     </a>
@@ -309,7 +340,7 @@ layout: default
                 {% if page.author_instagram_url and page.author_instagram_url != "" %}
                   <!-- Instagram Link -->
                   <li>
-                    <a href="{{ page.author_instagram_url }}" rel="nofollow noopener noreferrer">
+                    <a target="_blank" href="{{ page.author_instagram_url }}" rel="nofollow noopener noreferrer">
                       <i class="fab fa-fw fa-instagram"></i>
                       <span class="label">Instagram</span>
                     </a>
@@ -361,7 +392,7 @@ layout: default
             {% for links in author_details.links %}
               <!-- Social Link -->
               <li>
-                <a href="{{ links.url }}" rel="nofollow noopener noreferrer">
+                <a target="_blank" href="{{ links.url }}" rel="nofollow noopener noreferrer">
                   <i class="{{ links.icon }}"></i>
                   <span class="label">{{ links.label }}</span>
                 </a>

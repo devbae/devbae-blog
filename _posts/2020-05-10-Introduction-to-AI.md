@@ -1,7 +1,6 @@
 ---
 layout: post
-author: "Utkarsh Jain"
-author_url: https://github.com/the-utkarshjain
+author: "the-utkarshjain"
 title: "Artificial Intelligence - Part 1"
 home_title: "Intro to Artificial Intelligence Series"
 home_subtitle: "Learn A.I. from Scratch"

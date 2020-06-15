@@ -1,10 +1,8 @@
 ---
 layout: post
 author: ["aashish-ak", "Lakshya Arora"]
-author_url: ["https://github.com/aashish-ak", "https://github.com/aroralakshya"]
-author_bio: ["", "Description of Lakshay"]
-author_image_url: ["","https://avatars2.githubusercontent.com/u/20344314?s=400&u=c8eef79e899cb896add5624444ad1dee0bcfdf36&v=4"]
-author_twitter_url: ["", "https://twitter.com"]
+author_github_id: ["aashish-ak", "aroralakshya"]
+author_image_url: ["","https://avatars2.githubusercontent.com/u/20344314"]
 title: "Web Scraping - The Python Way!"
 subtitle: "How about turning the whole internet into your database?"
 bg_url: "https://source.unsplash.com/Qbs6liSxjr8/1200x800"

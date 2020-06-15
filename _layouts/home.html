@@ -54,15 +54,21 @@ layout: default
               <p class="meta">Posted by
                 {% if authors.first %}
                   {% for author in authors %}
-                    {% if post.author_url[forloop.index0] %}
-                      <a target="_blank" href="{{ post.author_url[forloop.index0] }}">{{ author }}</a>{% unless forloop.last %},{% endunless %} 
+                    {% if site.data.authors[author] %}
+                      <a target="_blank" href="https://github.com/{{ author }}">{{ site.data.authors[author].name }}</a>{% unless forloop.last %},{% endunless %}
                     {% else %}
-                      {{ author }}{% unless forloop.last %},{% endunless %}
+                      {% if post.author_github_id[forloop.index0] and post.author_github_id[forloop.index0] != "" %}
+                        <a target="_blank" href="https://github.com/{{ post.author_github_id[forloop.index0] }}">{{ author }}</a>{% unless forloop.last %},{% endunless %}
+                      {% else %}
+                        {{ author }}{% unless forloop.last %},{% endunless %}
+                      {% endif %}
                     {% endif %}
                   {% endfor %}
                 {% else %}
-                  {% if post.author_url %}
-                    <a target="_blank" href="{{ post.author_url }}">{{ authors }}</a>
+                  {% if site.data.authors[post.author] %}
+                    <a target="_blank" href="https://github.com/{{ post.author }}">{{ site.data.authors[post.author].name }}</a>
+                  {% elsif post.author and post.author_github_id and post.author_github_id != "" %}
+                    <a target="_blank" href="https://github.com/{{ post.author_github_id }}">{{ authors }}</a>{% unless forloop.last %},{% endunless %}
                   {% else %}
                     {{ authors }}
                   {% endif %}
