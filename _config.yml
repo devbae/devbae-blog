@@ -16,10 +16,7 @@ google_analytics:   UA-165164055-1 # out your google-analytics code
 
 # Build settings
 future: true
-markdown: redcarpet
-highlighter: pygments
-redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript"]
+markdown: kramdown
 
 paginate:           5
 paginate_path:      "/posts/page:num/"
