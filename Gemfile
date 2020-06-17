@@ -8,8 +8,7 @@ group :jekyll_plugins do
   gem "jekyll-sitemap"
 end
 
-gem "redcarpet"
-gem 'pygments.rb'
+gem "kramdown"
 gem 'jemoji'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
