@@ -32,6 +32,9 @@ plugins:
 include: 
   - _pages
 
+# To make endpoints for links and drop '.html' extensions
+permalink: /:title/
+
 # Defaults
 defaults:
   # _posts
