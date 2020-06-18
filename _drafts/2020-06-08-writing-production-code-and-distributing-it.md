@@ -14,7 +14,7 @@ Felt bad right? That exactly what happens when anyone looks at a poorly document
 
 I recently worked on a code and it was a nightmare for me to appreciate what they did just by looking at the code. There was no good API Documentation, there were no examples, code was poorly linted and it's `setup.py` was one big mess.
 
-Over these 4 years, I have realized that everyone tells you how to publish your code, as [in a previous article in DevBae](https://devbae.tech/2020/06/04/Building-Python-Packages-and-Deploying-on-PyPi.html), but no one tells you how to write it in a way that it'll be usable and people will be able to read it/understand it/redistribute it.
+Over these 4 years, I have realized that everyone tells you how to publish your code, as [in a previous article in DevBae]({% post_url 2020-06-04-Building-Python-Packages-and-Deploying-on-PyPi %}), but no one tells you how to write it in a way that it'll be usable and people will be able to read it/understand it/redistribute it.
 
 There are some considerations when you write your code. These will be:
 
