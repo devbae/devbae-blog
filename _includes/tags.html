@@ -1,0 +1,6 @@
+{% for tag in page.tags %}
+    {% if tag != 'home' %}
+        {% capture tag_name %}{{ tag }}{% endcapture %}
+        <a href="/tag/#{{ tag_name }}" class="badge badge-pil"><code ><nobr>{{ tag_name }}</nobr></code></a>
+    {% endif %}
+{% endfor %}
