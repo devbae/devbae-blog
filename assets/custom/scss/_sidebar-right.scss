@@ -2,10 +2,13 @@
 .sidebar__right {
     float: right;
     font-size: 18px;
-    border: 1px solid #aaa;
+    border: 1px solid #f2f3f3;
+    background-color: #fff;
     margin-top: 30px;
     border-radius: 3px;
     z-index: 10;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.125);
+    box-shadow: 0 1px 1px rgba(0,0,0,0.125);
 }
 
 /* For large screens */
@@ -28,6 +31,15 @@
         width: 38%;
         margin-right: -40%;
     }
+
+    /* For creating the fade effect and hover effect */
+    .toc__menu a {
+        opacity: 0.9;
+    }
+
+    .toc__menu a:hover {
+        opacity: 1;
+    }
 }
 
 /* For mobile and tablets, the table of content will be a the top */
@@ -45,12 +57,19 @@
 }
 
 /* Below css for styling */
-.sidebar__right header {
-    padding: 12px 12px 2px 12px;
-}
+.toc .nav__title {
+    margin: 0;
+    padding: 0.25rem 0.75rem;
+    font-family: -apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;
+    color: #fff;
+    font-size: 1em;
+    background: #7a8288;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
 
-.toc nav__title {
-    padding: 4px;
+    i {
+        margin-right: 2px;
+    }
 }
 
 .toc ul {
@@ -64,7 +83,7 @@
 .toc__menu a {
     display: block;
     padding: 0.25rem 0.75rem;
-    color: #6f7174;
+    color: #515255;
     font-weight: bold;
     line-height: 1.5;
     border-bottom: 1px solid #f2f3f3;
