@@ -1,0 +1,80 @@
+/* This file contains the css of the right sidebar which contains the table of contents */
+.sidebar__right {
+    float: right;
+    font-size: 18px;
+    border: 1px solid #aaa;
+    margin-top: 30px;
+    border-radius: 3px;
+    z-index: 10;
+}
+
+/* For large screens */
+@media (min-width: 1640px) {
+    .sidebar__right {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50% !important;
+        margin-right: -55% !important;
+    }
+}
+
+/* For medium screens */
+@media (min-width: 1400px) {
+    .sidebar__right {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 38%;
+        margin-right: -40%;
+    }
+}
+
+/* For mobile and tablets, the table of content will be a the top */
+.sidebar__right {
+    float: none;
+}
+
+/* Adding this to remove the odd space if left within by the container for medium devices when the sidebar_right disappers */
+@media (min-width: 1200px) {
+    @media (max-width: 1400px) {
+        .container {
+            margin-right: 10px;
+        }
+    }
+}
+
+/* Below css for styling */
+.sidebar__right header {
+    padding: 12px 12px 2px 12px;
+}
+
+.toc nav__title {
+    padding: 4px;
+}
+
+.toc ul {
+    list-style-type: none;
+}
+
+.toc .toc__menu {
+    padding-left: 0;
+}
+
+.toc__menu a {
+    display: block;
+    padding: 0.25rem 0.75rem;
+    color: #6f7174;
+    font-weight: bold;
+    line-height: 1.5;
+    border-bottom: 1px solid #f2f3f3;
+}
+
+.toc__menu li ul {
+    padding-left: 16px;
+}
+
+.toc__menu li ul>li a {
+    padding-left: 1.25rem;
+    font-weight: normal;
+}

@@ -50,7 +50,7 @@
 }
 
 /* For smaller device like mobile coverting sidebar to top */
-@media (max-width: 992px) {
+@media (max-width: 1050px) {
   /* Right now sidebar is not created for mobile devices */
   .author__avatar img {
     width: 100% !important;
@@ -222,7 +222,7 @@ author__urls li {
     left: 8%;
   }
 }
-@media (min-width: 1600px) {
+@media (min-width: 1680px) {
   #sidebar{
     left: 12%;
   }
