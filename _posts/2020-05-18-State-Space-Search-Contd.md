@@ -6,7 +6,6 @@ subtitle: "State-Space and Informed Search"
 bg_url: "https://blog-c7ff.kxcdn.com/blog/wp-content/uploads/2017/04/AI_blog.jpg"
 tags: [AI]
 toc: true
-toc_label: "On this page"
 ---
 
 This is the Part 2.2 in the __Introduction to A.I.__ blog series. Checkout [Part 1]({% post_url 2020-05-10-Introduction-to-AI %}) and [Part 2.1]({% post_url 2020-05-17-State-Space-Search %}).

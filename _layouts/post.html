@@ -412,7 +412,14 @@ layout: default
         {% if page.toc %}
           <aside class="sidebar__right">
             <nav class="toc">
-              <header><h4 class="nav__title"><i class="fa fa-file-alt fa-w-12"></i> {{ page.toc_label | default: site.data.ui-text[site.locale].toc_label }}</h4></header>
+              <header><h4 class="nav__title">
+                <i class="fa fa-file-alt fa-w-12"></i> 
+                {% if page.toc_label %}
+                  {{ page.toc_label }}
+                {% else %}
+                  On this Page
+                {% endif %}
+              </h4></header>
               {% include toc.html sanitize=true html=content h_min=2 h_max=3 class="toc__menu" %}
             </nav>
           </aside>

@@ -8,7 +8,6 @@ subtitle: "Introduction to Artificial Intelligence"
 bg_url: "https://blog-c7ff.kxcdn.com/blog/wp-content/uploads/2017/04/AI_blog.jpg"
 tags: [home, AI]
 toc: true
-toc_label: "On this page"
 ---
 
 In this series of blogs I aim to introduce a broad introduction to several core areas of Artificial Intelligence. The focus is on what could be characterized as high-level cognitive functions of intelligent systems: thinking/reasoning, problem-solving, decision-making, and planning. These functionalities are central for any intelligent person, creature or device, and shows up in most of the important A.I. applications: **What action to take to satisfy given objectives?**
