@@ -83,11 +83,11 @@ subtitle: "<Your article subtitle (optional)>"
 bg_url: "<A relevant BG image url>"
 tags: [<your custom tags>]
 
-toc: true # Add this line if you wnat to have a table of contents created
-toc_label: "<Table of contents heading>" # You need this line if you want a custom heading for toc, default is "On this Page"
-# By default toc is created for heading between 2 and 3, you can specify the range using these two lines
-h_min: <Min-Heading> # Default is 2, start header for toc
-h_max: <Max=Heading> # Default is 3, more than or equal to h_min, end_header for toc 
+toc: true # Add this line if you want to have a table of contents created
+# These two lines for toc are optional
+toc_label: "<Table of contents heading>" # You need this line only if you want a custom heading for toc, default is "On this Page", no need to add if no special heading for table of contents
+# By default toc is created for heading between 2 and 4, you can specify the range using this line
+h_range: [h_min, h_max] # Default is [2,4], start header for toc and end header for toc, Take care h_min to be smaller than or equal to h_max, else default value will be used
 ---
 ```
 

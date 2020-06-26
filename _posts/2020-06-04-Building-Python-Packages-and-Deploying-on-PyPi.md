@@ -7,8 +7,7 @@ home_subtitle: "Build and deploy packages on PyPI"
 bg_url: "https://miro.medium.com/max/878/1*86KH2gnGpfLWA8uFngCUXA.png"
 tags: [home, python, pypi]
 toc: true
-h_min: 3
-h_max: 5
+h_range: [3,5]
 ---
 
 If python is your favourite language and you love building python modules, then you are at the right place!! Every python developer must know how to packge the python code and deploy on PyPI (Python Package Index) where it is publicly available to install via pip. I will be explaining it all in a very simple and systematic manner which will be easy and quick for beginners to understand and for experts to refer to any specific section if stuck. Let's get started!!
