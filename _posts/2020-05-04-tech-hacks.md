@@ -13,6 +13,7 @@ toc_label: "List of Hacks"
 ![image alt ><](https://i.kym-cdn.com/entries/icons/facebook/000/021/807/ig9OoyenpxqdCQyABmOQBZDI0duHk2QZZmWg2Hxd4ro.jpg)
 
 ## GitHub Image Upload Hack
+
 By [Aashish Kumar](https://github.com/aashish-ak)
 
 Did you know that you can use GitHub to host any of your images?? Although you can also use sites like [Imgur](https://imgur.com/upload), to upload images and host them. But that's too mainstream :stuck_out_tongue:. You can use Github for this too. You just need to have a Github account for this. Follow these steps:
