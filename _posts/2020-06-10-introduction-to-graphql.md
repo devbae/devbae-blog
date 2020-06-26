@@ -5,6 +5,7 @@ title: "Introduction to GraphQL"
 subtitle: "The future of APIs?"
 bg_url: "https://i.imgur.com/4BVtURe.png"
 tags: [home, graphql, api]
+toc: true
 ---
 
 If you are a developer, you would be knowing what an API is. At some point in your career, you would have used APIs to get data from some other application. Because let's be honest, [web scraping]({% post_url 2020-05-09-web-scraping %}) doesn't work all the time, plus using APIs is also a lot more convenient.
@@ -81,13 +82,13 @@ There are two types of GraphQL commands
 
 If you are a developer who has the data and wants to share it with other developers, then you need to create a GraphQL API for your data. Whereas, if you are a developer who needs the data from an already existing API, you need to make the API calls to get the data. Let us talk in detail about both cases.
 
-### If you own the data | Creating a server
+### If you own the data - Creating a server
 
 If you have a database and have to share that data with your users, you need to create an API of your own using GraphQL.
 Now to create the API, all you need to do is create a GraphQL server, create the schema, and add the data. There are a lot of programming languages and web frameworks which support GraphQL, and allow you to create a server. For example, Python has a library called [Graphene](https://graphene-python.org/) which does the task, and the same can be used for Python-based Web Frameworks like Django/Flask as well.
 Similarly, other languages like Java, C#, PHP, Kotlin, etc have libraries for the same. Check out about all supported languages [here](https://graphql.org/code/).
 
-### If you need the data | Making requests
+### If you need the data - Making requests
 
 There are two popular ways of making requests to the GraphQL API. First is the good old way of making HTTP requests(POST or GET) using code(curl, or using different libraries), and the second way is using IDEs which is provided by many APIs. Let's see both ways.
 

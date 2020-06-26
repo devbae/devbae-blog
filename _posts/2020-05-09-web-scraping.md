@@ -5,6 +5,7 @@ title: "Web Scraping - The Python Way!"
 subtitle: "How about turning the whole internet into your database?"
 bg_url: "https://source.unsplash.com/Qbs6liSxjr8/1200x800"
 tags: [home, scraping, beginner, python, beautifulsoup]
+toc: true
 ---
 Pre-requisites:
 

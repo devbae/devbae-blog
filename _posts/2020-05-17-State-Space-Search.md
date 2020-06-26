@@ -5,6 +5,7 @@ title: "Artificial Intelligence - Part 2.1"
 subtitle: "State-Space Search Methods"
 bg_url: "https://blog-c7ff.kxcdn.com/blog/wp-content/uploads/2017/04/AI_blog.jpg"
 tags: [AI]
+toc: true
 ---
 
 This is Part 2.1 in the __Introduction to A.I.__ blog series. Read [Part 1]({% post_url 2020-05-10-Introduction-to-AI %}) for basic introduction to A.I.
