@@ -6,6 +6,8 @@ subtitle: "The future of APIs?"
 bg_url: "https://i.imgur.com/4BVtURe.png"
 tags: [home, graphql, api]
 toc: true
+h_min: 2
+h_max: 4
 ---
 
 If you are a developer, you would be knowing what an API is. At some point in your career, you would have used APIs to get data from some other application. Because let's be honest, [web scraping]({% post_url 2020-05-09-web-scraping %}) doesn't work all the time, plus using APIs is also a lot more convenient.
