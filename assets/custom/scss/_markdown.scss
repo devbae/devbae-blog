@@ -28,3 +28,8 @@ h1, h2, h3, h4, h5, h6 {
     /* 64px navbar + 20px for spacing */
     scroll-margin-top: 84px;
 }
+
+/* Making the list links items as underlined */
+li a {
+  text-decoration: underline;
+}
