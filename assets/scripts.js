@@ -1,5 +1,4 @@
 $(function () {
-  $('[data-toggle="tooltip"]').tooltip();
 
   var $window = $(window),
     $sidebar = $('#sidebar');
@@ -30,7 +29,7 @@ $(function () {
 
     // Adding properties to the div
     div.setAttribute('class','copy-code-container');
-    div.innerHTML = '<button class="btn btn-light code-copy-button" onclick=copyThisCode(this)>Copy</button>';
+    div.innerHTML = '<button class="btn btn-light code-copy-button" data-toggle="tooltip" data-placement="top" title="Copy to clipboard" onclick=copyThisCode(this)>Copy</button>';
 
     // Prepending and adding classes to the parentNode
     preBlocks[i].parentNode.prepend(div); // prepending the new node
@@ -58,6 +57,9 @@ $(function () {
     }
   });
 
+  // For toggle, added this line after all data-toggle needed are done
+  $('[data-toggle="tooltip"]').tooltip();
+
 });
 
 // Pass 'this' to this function of the button and this will copy the code
@@ -83,4 +85,13 @@ function copyThisCode(btnClicked) {
 
   // Finally remove the textarea
   document.body.removeChild(tempInput);
+
+  // Change the tooltip after copying
+  $(btnClicked).attr('data-original-title', 'copied!')
+    .tooltip('show');
+
+  // Again back the copy to clipboard title after going outside (Inspired from Bootstrap)
+  $(btnClicked).hover(function() {
+    $(btnClicked).attr('data-original-title', 'Copy to clipboard');
+  });
 }
