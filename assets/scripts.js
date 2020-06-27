@@ -21,31 +21,66 @@ $(function () {
     }
   });
 
-  // <!-- Script for code copying -->
-  $('pre').hover(function() {
-    console.log("Hello You just hovered this pre ");
+  // Adding copy buttons to all pre tags parentNode and add class code-container
+  var preBlocks = document.getElementsByTagName('pre');
+  for (var i=0;i<preBlocks.length;i++) {
+
+    // console.log(preBlocks[i].parentNode);
+    var div = document.createElement('div'); // Creating a new node
+
+    // Adding properties to the div
+    div.setAttribute('class','copy-code-container');
+    div.innerHTML = '<button class="btn btn-light code-copy-button" onclick=copyThisCode(this)>Copy</button>';
+
+    // Prepending and adding classes to the parentNode
+    preBlocks[i].parentNode.prepend(div); // prepending the new node
+    preBlocks[i].parentNode.classList.add('code-container');
+    console.log("Successfully added copy buttons to the codes");
+  }
+
+  // Use this after adding above code triggered when your mouse enters the .code-container block
+  // <!-- Script for showing and hiding code button -->
+  $('.code-container').hover(function() {
 
     // console.log(this);
-    // console.log($(this));
+    // console.log(this.parentNode); // This is the outer div which containes the pre
 
     if(this.classList.contains('is-hovered')){
+
+      // console.log("Mouse leaved outside ");
       this.classList.remove('is-hovered');
-      console.log("Mouse leaved outside ");
 
-      // Remove the copy button from the parent
     } else {
-      console.log("Mouse entered inside ");
+
+      // console.log("Mouse entered inside ");
       this.classList.add('is-hovered');
-      console.log(this.textContent);
 
-      // This is creating a problem for right now think of something else
-      // Add the content one thing and copy button to the parent
-      // console.log(this.parentNode);
-      // var toBeAdded = '<div id="copy-code-button">' 
-      // + '</div>';
-
-      // this.parentNode.innerHTML += toBeAdded;
-      console.log("check now!");
     }
   });
-})
+
+});
+
+// Pass 'this' to this function of the button and this will copy the code
+function copyThisCode(btnClicked) {
+
+  // Checking some values as correct or not
+  // console.log(btnClicked);
+  var codeContainer = btnClicked.parentNode.parentNode;
+
+  // Get the code which need to be copied
+  var codeToCopy = codeContainer.getElementsByTagName('pre')[0].textContent;
+  // console.log(codeToCopy);
+
+  // Create a temporary textarea to select and copy to clipboard
+  var tempInput = document.createElement("textarea");
+  tempInput.style = "position: absolute; left: -1000px; top: -1000px";
+
+  // Copy to clipboard done by first adding the to text area, selecting and then coping it using execCommand
+  tempInput.innerHTML = codeToCopy;
+  document.body.appendChild(tempInput);
+  tempInput.select();
+  document.execCommand("copy");
+
+  // Finally remove the textarea
+  document.body.removeChild(tempInput);
+}

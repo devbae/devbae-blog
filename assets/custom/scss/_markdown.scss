@@ -28,3 +28,15 @@ h1, h2, h3, h4, h5, h6 {
     /* 64px navbar + 20px for spacing */
     scroll-margin-top: 84px;
 }
+
+.copy-code-container {
+  position: absolute;
+  right: 40px;
+  z-index: 999;
+  display: none;
+}
+
+/* This for making the copy button visible */
+.is-hovered .copy-code-container {
+  display: block;
+}
