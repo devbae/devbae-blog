@@ -24,8 +24,8 @@ $(function () {
   var preBlocks = document.getElementsByTagName('pre');
   for (var i=0;i<preBlocks.length;i++) {
 
-    // console.log(preBlocks[i].parentNode);
-    var div = document.createElement('div'); // Creating a new node
+    // Creating a new node div
+    var div = document.createElement('div');
 
     // Adding properties to the div
     div.setAttribute('class','copy-code-container');
@@ -34,26 +34,15 @@ $(function () {
     // Prepending and adding classes to the parentNode
     preBlocks[i].parentNode.prepend(div); // prepending the new node
     preBlocks[i].parentNode.classList.add('code-container');
-    console.log("Successfully added copy buttons to the codes");
   }
 
   // Use this after adding above code triggered when your mouse enters the .code-container block
-  // <!-- Script for showing and hiding code button -->
+  // For showing and hiding code button
   $('.code-container').hover(function() {
-
-    // console.log(this);
-    // console.log(this.parentNode); // This is the outer div which containes the pre
-
     if(this.classList.contains('is-hovered')){
-
-      // console.log("Mouse leaved outside ");
       this.classList.remove('is-hovered');
-
     } else {
-
-      // console.log("Mouse entered inside ");
       this.classList.add('is-hovered');
-
     }
   });
 
@@ -65,33 +54,41 @@ $(function () {
 // Pass 'this' to this function of the button and this will copy the code
 function copyThisCode(btnClicked) {
 
-  // Checking some values as correct or not
-  // console.log(btnClicked);
+  // First find the code container where code exists
   var codeContainer = btnClicked.parentNode.parentNode;
 
   // Get the code which need to be copied
   var codeToCopy = codeContainer.getElementsByTagName('pre')[0].textContent;
-  // console.log(codeToCopy);
 
+  // From here the copy work needs to be done
   // Create a temporary textarea to select and copy to clipboard
-  var tempInput = document.createElement("textarea");
-  tempInput.style = "position: absolute; left: -1000px; top: -1000px";
+  // var tempInput = document.createElement("textarea");
+  // tempInput.style = "position: absolute; left: -1000px; top: -1000px";
 
-  // Copy to clipboard done by first adding the to text area, selecting and then coping it using execCommand
-  tempInput.innerHTML = codeToCopy;
-  document.body.appendChild(tempInput);
-  tempInput.select();
-  document.execCommand("copy");
+  // // Copy to clipboard done by first adding the to text area, selecting and then coping it using execCommand
+  // tempInput.innerHTML = codeToCopy;
+  // document.body.appendChild(tempInput);
+  // tempInput.select();
+  // document.execCommand("copy");
 
-  // Finally remove the textarea
-  document.body.removeChild(tempInput);
+  // // Finally remove the textarea
+  // document.body.removeChild(tempInput);
 
-  // Change the tooltip after copying
-  $(btnClicked).attr('data-original-title', 'copied!')
+  // Copying the new way
+  navigator.clipboard.writeText(codeToCopy).then(function(){
+
+    // Change the tooltip after copying
+    $(btnClicked).attr('data-original-title', 'copied!')
     .tooltip('show');
 
-  // Again back the copy to clipboard title after going outside (Inspired from Bootstrap)
-  $(btnClicked).hover(function() {
-    $(btnClicked).attr('data-original-title', 'Copy to clipboard');
+    // Again back the copy to clipboard title after going outside (Inspired from Bootstrap)
+    $(btnClicked).hover(function() {
+      $(btnClicked).attr('data-original-title', 'Copy to clipboard');
+    });
+
+  }, function() {
+    alert('Code copy failed');
+    console.log("Copy failed!");
   });
+
 }
