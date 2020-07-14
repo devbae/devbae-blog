@@ -60,20 +60,6 @@ function copyThisCode(btnClicked) {
   // Get the code which need to be copied
   var codeToCopy = codeContainer.getElementsByTagName('pre')[0].textContent;
 
-  // From here the copy work needs to be done
-  // Create a temporary textarea to select and copy to clipboard
-  // var tempInput = document.createElement("textarea");
-  // tempInput.style = "position: absolute; left: -1000px; top: -1000px";
-
-  // // Copy to clipboard done by first adding the to text area, selecting and then coping it using execCommand
-  // tempInput.innerHTML = codeToCopy;
-  // document.body.appendChild(tempInput);
-  // tempInput.select();
-  // document.execCommand("copy");
-
-  // // Finally remove the textarea
-  // document.body.removeChild(tempInput);
-
   // Copying the new way
   navigator.clipboard.writeText(codeToCopy).then(function(){
 
