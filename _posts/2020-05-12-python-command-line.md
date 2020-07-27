@@ -1,14 +1,16 @@
 ---
 layout: post
-author: "Aashish Kumar"
+author: aashish-ak
 author_url: https://github.com/aashish-ak
 title: "Linux Command Line Utility."
 subtitle: "Learn to have a custom command for your software."
 bg_url: "https://s30776.pcdn.co/wp-content/uploads/2020/04/AdobeStock_305233591.jpeg"
-tags: [command-line]
+tags: [home, python, command-line]
 ---
 
-#### Note: This blog is written entirely keeping Ubuntu in mind. (Leave Windows already :punch:.)
+**Note: This blog is written entirely keeping Ubuntu in mind. (Leave Windows already :punch:).**
+
+This blog is a part of [__DevBae Live__](https://www.youtube.com/channel/UCtBQq6FAZHHQ7cyA_sxH1ww) series and the tutorial was recorded live on 26th July 2020. You can follow the video tutorial [here](https://youtu.be/COCPzVhdZsk).
 
 An average coder runs at least 50 commands in a day (I just guessed it :stuck_out_tongue:). These commands range from updating your OS with `apt` to restarting your server again and again with `node start`. Some of the basic ones are used extensively in a day like `cd` or `python` etc.
 
@@ -166,7 +168,7 @@ $ ./count_cli
 
 usage: count_cli [-h] -cmd CMD
 
-This is Hello command!
+This is count_cli command!
 
 optional arguments:
   -h, --help  show this help message and exit
@@ -314,5 +316,7 @@ optional arguments:
 Hurray! You now have a custom command-line utility. This was just a basic tool that we created, you can create a command-line version of your software through this. We can't wait to see what you do with this awesome tool :heart:.
 
 Happy Coding!!
+
+You can watch the video version of this tutorial as a part of __DevBae Live__ [here](https://youtu.be/COCPzVhdZsk).
 
 __Note: If you think there's anything wrong in this article or something that can be improved in any way, feel free to point out in the comments.__
