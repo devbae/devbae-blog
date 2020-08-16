@@ -1,11 +1,11 @@
 ---
 layout: post
-author: "Shreyas Bapat"
-author_url: https://github.com/shreyasbapat
+author: shreyasbapat
 title: "Writing Production Grade Code and Distributing it"
 subtitle: "Code that makes everyone happy!"
-bg_url: "https://d2o2utebsixu4k.cloudfront.net/media/images/f8199c55-8d6d-442c-b091-07f759536913.jpg"
-tags: [conda, python, pypi, linting, packaging]
+bg_url: "https://i.morioh.com/200701/df6cd42c.jpg"
+toc: true
+tags: [home, conda, python, pypi, linting, packaging]
 ---
 
 Imagine you are in a desert and you only have one bottle packed in a Japanese puzzle box with no documentation on how to open it.
@@ -14,7 +14,7 @@ Felt bad right? That exactly what happens when anyone looks at a poorly document
 
 I recently worked on a code and it was a nightmare for me to appreciate what they did just by looking at the code. There was no good API Documentation, there were no examples, code was poorly linted and it's `setup.py` was one big mess.
 
-Over these 4 years, I have realized that everyone tells you how to publish your code, as [in a previous article in DevBae]({% post_url 2020-06-04-Building-Python-Packages-and-Deploying-on-PyPi %}), but no one tells you how to write it in a way that it'll be usable and people will be able to read it/understand it/redistribute it.
+Over these 4 years, I have realized that everyone tells you how to publish your code, as in a [previous article]({% post_url 2020-06-04-Building-Python-Packages-and-Deploying-on-PyPi %}) in DevBae, but no one tells you how to write it in a way that it'll be usable and people will be able to read it/understand it/redistribute it.
 
 There are some considerations when you write your code. These will be:
 
@@ -315,7 +315,7 @@ In the end, you will have `sudo apt install python3-packagename` for your packag
 
 You SHOULD ALWAYS NAME YOUR LICENCE FILE AS **COPYING**. Don't ask why, just do it. The reasons for that are beyond the scope of this article.
 
-![licence](https://www2.cs.duke.edu/courses/compsci308/spring17/classwork/opensource/licenses.png)
+![image alt ><](https://www2.cs.duke.edu/courses/compsci308/spring17/classwork/opensource/licenses.png)
 
 Your source publication needs a license. In the US, if no license is specified, users have no legal right to download, modify, or distribute. Furthermore, people can’t contribute to your code unless you tell them what rules to play by. Choosing a license is complicated, so here are some pointers:
 
@@ -340,7 +340,7 @@ To help you choose one for your project, there’s a license chooser; use it.
   - ISC
 - Apache
 
-#### Less Permissive:
+#### Less Permissive
 
 - LGPL
 - GPL
@@ -354,3 +354,5 @@ Choosing a license is one of the most important tasks as it defines how your sof
 I hope I explained most of the things very well, if you still have doubts, write a mail to me on [hello@shreyasb.com](mailto:hello@shreyasb.com). I will be glad to have a discussion with you. Hope to see more and more Python Packages from the community. Remember, don't think that your code is very basic and does not contribute anything to society. Every bit counts, every second you invest in making a code that does a small task counts. No code is useless.
 
 Happy Coding!
+
+__Note: If you think there's anything wrong in this article or something that can be improved in any way, feel free to point out in the comments.__
