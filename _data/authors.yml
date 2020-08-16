@@ -123,3 +123,18 @@ pranshukharkwal:
     - label: "Instagram"
       icon: "fab fa-instagram"
       url: "https://www.instagram.com/hellopranshu"
+
+shreyasbapat:
+  name        : "Shreyas Bapat"
+  bio         : "Organisation Admin, EinsteinPy"
+  avatar      : "https://avatars0.githubusercontent.com/u/24257914"
+  links:
+    - label: "Email"
+      icon: "fas fa-envelope-square"
+      url: "mailto:bapat.shreyas@gmail.com"
+    - label: "GitHub"
+      icon: "fab fa-github"
+      url: "https://github.com/shreyasbapat"
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://shreyasb.com/"
