@@ -11,20 +11,20 @@
   </title>
 
   <!-- Add favicon -->
-  <link rel="shortcut icon" type="image/ico" href="{{'/assets/images/favicon.ico' | prepend: site.url}}">
+  <link rel="shortcut icon" type="image/ico" href="{{'/assets/images/favicon.ico'}}">
 
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
 
   <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="{{"/assets/vendor/bootstrap/css/bootstrap.min.css" | prepend: site.url }}">
+  <link rel="stylesheet" href="{{"/assets/vendor/bootstrap/css/bootstrap.min.css"}}">
 
   <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"> -->
-  <link rel="stylesheet" href="{{"/assets/vendor/fontawesome-free/css/all.min.css" | prepend: site.url }}">
+  <link rel="stylesheet" href="{{"/assets/vendor/fontawesome-free/css/all.min.css"}}">
 
-  <link rel="stylesheet" href="{{"/assets/main.css" | site_url }}">
+  <link rel="stylesheet" href="{{"/assets/main.css"}}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml"}}">
 
 </head>
