@@ -2,7 +2,7 @@ title:              DevBae
 email:              contact@devbae.tech
 description:        Technology Made Easy!
 author:             DevBae
-baseurl:            "/" 
+baseurl:            "/devbae-blog" 
 
 # Social Profiles
 # twitter_username:   SBootstrap
