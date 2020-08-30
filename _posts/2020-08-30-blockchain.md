@@ -12,13 +12,16 @@ bg_url: "https://images.unsplash.com/photo-1561451213-d5c9f0951fdf?ixlib=rb-1.2.
 Seems a pretty miserable condition, doesn’t it? Do you think this would have happened if the record were maintained properly? What if apart from Gunther, someone from the friends would have maintained a register and records of their snacks and it’s cost? This sounds better, right? But what if the records again got misplaced due to some reasons? Or what if he manipulates with the record? A better opinion could have been to maintain the record by every member of the friend circle, so that even if it got misplaced or someone turned malicious, others record would have saved from the records getting tarnished.
 
 Now coming back to the point where we have started. **Blockchain!!** So this is what Blockchain is supposed to do but at a much larger and vast platform. But what is blockchain? In geeky language,”A blockchain is a growing list of records, called blocks, that are linked using cryptography.Each block contains a cryptographic hash of the previous block, a timestamp, and transaction data.” Let’s break these heavy words bit by bit to understand in a better and clearer way.
+
 We saw in the above scenario where maintaining records by a single person or a third party may prove fatal, there are many ways in which the record could get destroyed. What if the worker isn’t sincere about his work? What if he turns partial? What if your third-party isn't trustworthy? This canteen incident might seem a small scenario . But how would you tackle if such a scenario occurs in your bank, votes or other day to day life's much bigger issues.
+
 Have you realised how much we are dependent on these third parties in our daily life from a small to big problem and they pose a big question on our security, trust and privacy. When you send money to your far flung friend, it’s these third parties that come into play, when you cast a vote doesn’t it make you question the authenticity of counting votes, even when you order something online, there are several third parties in between, you don’t directly buy it from the manufacturer.
 To tackle all these problems, and as a saviour to these trust-factor questions, this term, “Blockchain”, came into existence in the 1990s but wasn’t used much until 2008. It gained popularity in the year 2008 when Satoshi Nakamoto developed a cryptocurrency using this technology and idea. 
 
 ![image ><](https://3ovyg21t17l11k49tk1oma21-wpengine.netdna-ssl.com/wp-content/uploads/2020/04/Blockchain-Debate.jpg)
 
 One may be wondering now, that this term *blockchain*, doesn’t spell like, **B-I-T-C-O-I-N!** And so is the case, Bitcoin and Blockchain often resonates but bitcoin is just the cryptocurrency that uses Blockchain as the technology behind it. Just like we use the internet as the technology behind social-media or emails. Blockchain is a vast field with potential to revolutionise the way we trust each other and to do work much more efficiently without involving a third party in between. All those problems that we saw in the above example here can be solved by devising this idea.
+
 But what makes it so trustworthy and strong? How does it actually work? Where can we use this?
 
 ![image><](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQWsGtuQ7lbIVDSAY6V4ZgKpn9ugJVWKiNcyg&usqp=CAU)
