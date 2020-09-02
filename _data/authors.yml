@@ -127,8 +127,8 @@ pranshukharkwal:
 
 ridhiratan:
   name        : "Ridhi Ratan"
-  bio         : "An IIT-Mandi undergrad"
-  avatar      : "Paste your DP link here"
+  bio         : "An IIT Mandi Undergrad"
+  avatar      : "https://avatars2.githubusercontent.com/u/62908603"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
