@@ -145,6 +145,7 @@ ridhiratan:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       url: "https://www.instagram.com/ridhi_2719/"
+      
 shreyasbapat:
   name        : "Shreyas Bapat"
   bio         : "Organisation Admin, EinsteinPy"
