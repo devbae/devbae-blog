@@ -24,8 +24,6 @@ To tackle all these problems, and as a savior to these trust-factor questions, t
 
 ![image ><](https://3ovyg21t17l11k49tk1oma21-wpengine.netdna-ssl.com/wp-content/uploads/2020/04/Blockchain-Debate.jpg)
 
-[image source](https://3ovyg21t17l11k49tk1oma21-wpengine.netdna-ssl.com/wp-content/uploads/2020/04/Blockchain-Debate.jpg)
-
 ### Blockchain vs Bitcoin
 
 One may be wondering now, that this term *blockchain*, doesn’t spell-like, **B-I-T-C-O-I-N!** And so is the case, Bitcoin and Blockchain often resonate but bitcoin is just the cryptocurrency that uses Blockchain as the technology behind it. Just like we use the internet as the technology behind social-media or emails. Blockchain is a vast field with the potential to revolutionize the way we trust each other and to do work much more efficiently without involving a third party in between. All those problems that we saw in the above example here can be solved by devising this idea.
@@ -35,8 +33,6 @@ One may be wondering now, that this term *blockchain*, doesn’t spell-like, **B
 But what makes it so trustworthy and strong? How does it actually work? Where can we use this?
 
 ![image><](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQWsGtuQ7lbIVDSAY6V4ZgKpn9ugJVWKiNcyg&usqp=CAU)
-
-[image source](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQWsGtuQ7lbIVDSAY6V4ZgKpn9ugJVWKiNcyg&usqp=CAU)
 
 To begin with, let us understand that, blockchain is a **decentralized, distributed** and **peer-to-peer** digital ledger where transactions are recorded between people across many computers so that the record cannot be altered in any malicious ways. It’s almost impossible to alter or change the record once made(we will see how). Blockchain majorly works on cryptography and distributive computing.
 
@@ -51,14 +47,10 @@ So, these would be our major concerns.
 To tackle these concerns, what A can do is encrypt the data with B’s encryption key, such that it can only be decrypted by B’s key. This way, the file would reach safely, this is what Cryptography does.
 
 ![image ><](https://miro.medium.com/max/3104/1*FQMfTezYVTjTUHPMnj_TGQ.png)
-
-[image source](https://miro.medium.com/max/3104/1*FQMfTezYVTjTUHPMnj_TGQ.png)
  
 **DISTRIBUTIVE COMPUTING/DISTRIBUTED SYSTEM** - A distributed system, also known as distributed computing, is a system with multiple components located on different machines that communicate with each other.
 
 ![image ><](https://i.ytimg.com/vi/YS-QvfCZWvc/maxresdefault.jpg)
-
-[image source](https://i.ytimg.com/vi/YS-QvfCZWvc/maxresdefault.jpg)
 
 This is the soul of blockchain. The data instead of being with any individual is distributed among everyone, everyone has it’s copy of the data and if someone’s data varies from the rest, or gets affected or mishandled, he can simply discard his own and copy from others and then carry on with the procedure.
 
@@ -68,21 +60,16 @@ To understand this, let us consider a situation. Suppose we have a machine that 
 
 ![image ><](https://miro.medium.com/max/952/1*kYK4exiL9HesyhqysH8jRw.png)
 
-[image source](https://miro.medium.com/max/952/1*kYK4exiL9HesyhqysH8jRw.png)
-
 Now suppose that you made a small change in your input, it will again output some 256 characters, which is completely different from the last time, though you made only a tiny change. And the best part of this machine is that it works only one way, that means it can’t be reversed. Woah! So you see how you can encrypt your data and since it can’t be reversed, the possibility of this getting attacked is very very less and that’s why blockchain has the potential to revolutionize the way we trust each other.
 This machine is nothing but what Hashing Algorithm does, this hashing algorithm is of different types depending on the number of characters it outputs every time. Here, in our case, the output always has 256 characters, as it is a **SHA-256 Algorithm(Secure Hash Algorithm)**. 
 Since the process is irreversible and even a small change in input, leads to an entirely different set of output consisting of 256(or more) characters, it is highly unlikely that some malware would be able to attack or crack this input. One way one can think of is to give several inputs and then go on iterating until we get the desired output, but wait do you think it would be feasible to make a guess of an output consisting of 256 or more characters? 
 
 ![image ><](https://lh3.googleusercontent.com/M9BRI8XJTmkZgJKs_p_5rjqXnBuM-Rss7Un2H4FIt-4BziKfi4xYLkVYcNOEYZybfIYW7sPPWu6f9Xv_LYIc_AuLiLh_D0P-WB_-rbBOEXJbc6o3HnflntDDLb0F8w090x1ilp14)
 
-[image source](https://lh3.googleusercontent.com/M9BRI8XJTmkZgJKs_p_5rjqXnBuM-Rss7Un2H4FIt-4BziKfi4xYLkVYcNOEYZybfIYW7sPPWu6f9Xv_LYIc_AuLiLh_D0P-WB_-rbBOEXJbc6o3HnflntDDLb0F8w090x1ilp14)
 
 Moreover, when A sends some information to B, though it will be seen by everyone that some data is being transferred between two people, no one other than A and B will know about, between whom is the data being actually shared because the sender’s and receiver’s identity has been encrypted by using a hash function.
 
 ![image>< ](https://bitpay.com/blog/content/images/2017/05/insight-block-explorer-1.png)
-
-[image source](https://bitpay.com/blog/content/images/2017/05/insight-block-explorer-1.png)
 
 When we talk about blockchain, we need to understand that data is being stored in blocks and locked in such a way that it won’t be further manipulated or edited by anyone. The new data are added in subsequent separate blocks, resulting in the formation of chains of blocks, thus signifying it’s the literal name. So if one has to add something to the previous data, it is not possible and it can only be added in a further block. But what makes these blocks immutable? Every block that the system contains, contains its data(timestamp, Merkle tree, version, Proof of work, etc) along with the hash value of the previous block, in hashed form. So if someone tries to manipulate the data, then it will affect every block prior and after it. 
 
