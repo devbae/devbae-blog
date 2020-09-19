@@ -124,6 +124,27 @@ pranshukharkwal:
       icon: "fab fa-instagram"
       url: "https://www.instagram.com/hellopranshu"
 
+ridhiratan:
+  name        : "Ridhi Ratan"
+  bio         : "An IIT Mandi Undergrad"
+  avatar      : "https://avatars2.githubusercontent.com/u/62908603"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:ratanridhi18@gmail.com"
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://ridhiratan.github.io/ridhi/"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/ridhiratan"
+    - label: "Linkedin"
+      icon: "fab fa-linkedin"
+      url: "https://www.linkedin.com/in/ridhi-ratan-a00795191/"
+    - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
+      url: "https://www.instagram.com/ridhi_2719/"
+      
 shreyasbapat:
   name        : "Shreyas Bapat"
   bio         : "Organisation Admin, EinsteinPy"
