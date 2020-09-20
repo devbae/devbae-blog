@@ -42,6 +42,8 @@ To begin with, let us understand that, blockchain is a **decentralized, distribu
  1. **Confidentiality** - It means that any outer party or stranger should not be able to access these data being shared.
  2. **Integrity** - No third person should be able to modify or manipulate it.
  3. **Availability** - This means that the file should be readily available for the receiver.
+ 
+
 So, these would be our major concerns. 
 To tackle these concerns, what A can do is encrypt the data with B’s encryption key, such that it can only be decrypted by B’s key. This way, the file would reach safely, this is what Cryptography does.
 
