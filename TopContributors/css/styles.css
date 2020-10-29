@@ -1,0 +1,168 @@
+
+html, body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    color: #717f86;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+  
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: Open Sans, sans-serif;
+    font-weight: 700;
+    color: #4B4B4C;
+    display: block;
+  }
+  
+  a {
+    color: #ffffff;
+  }
+  
+  a:hover, a:focus {
+    color: #1E88E5;
+  }
+  
+  
+  /**********************************
+  Typography
+  **********************************/
+  .smt {
+    color: #fff;
+    text-align: center;
+    background-image: url(../img/bg.jpg);
+    background-size: cover;
+    background-color: #000080;
+    padding-top: 7em;
+    padding-bottom: 5em;
+    background-blend-mode: exclusion;
+    
+  }
+  
+  .smt-r1 {
+    font-size: 7em;
+    line-height: 1.4em;
+    color: #ffffff;
+    text-shadow: 4px 4px 4px #aaa;
+  }
+  
+  .smt-r2 {
+    font-size: 4em;
+    line-height: 1em;
+    color: #ffffff;
+    font-family: 'Tangerine', sans-serif; 
+  }
+  
+  
+  
+  /***********************************
+  Team Section
+  ************************************/
+  
+  #team {
+    height: auto;
+    margin-top: 200px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 65px;
+    
+    
+  }
+  
+  .designation {
+    font-size: 2.5em;
+  }
+  
+  .team-img {
+    margin: 1px 0px;
+    transition: .5s ease;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .team-box {
+    text-align: center;
+  }
+  
+  .member {
+    float: none;
+    display: inline-block;
+    margin-bottom: 1em;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  a.github-profile {
+    color: #4B4B4C;
+  }
+  
+  
+  #loader {
+    z-index: 3;
+  } 
+  /***********************************
+  Responsive media queries
+  ***********************************/
+  
+
+    #rights {
+      display: block;
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 1199px) {
+    .smallScreenBottom {
+      margin-left: 25%;
+    }
+  }
+
+  
+  
+  @media (min-width: 768px) {
+    .row2 {
+      float: right;
+      width: 380px;
+    }
+  
+    .contributor-div {
+     width: 19.5% !important;
+    }
+  
+    .contributor-div .team-img {
+      padding-left: 20%;
+      padding-right: 20%;
+    }
+  }
+  
+  
+  @media (max-width: 768px) and (min-width: 600px) {
+    .team-img {
+      padding-left: 150px;
+      padding-right: 150px;
+    }
+  }
+  
+  @media (max-width: 599px) and (min-width: 500px) {
+    .team-img {
+      padding-left: 100px;
+      padding-right: 100px;
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 900px) {
+    .team-img {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+  
+  @media (min-width: 1200px) and (max-width: 1300px) {
+    .team-img {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+  }
+  
