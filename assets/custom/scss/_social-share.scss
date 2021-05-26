@@ -16,3 +16,10 @@
 //   font-size: $type-size-6;
 //   text-transform: uppercase;
 // }
+
+@media(max-width: 768px) {
+  .page__share {
+    display: block;
+    text-align: center;
+  }
+}
